@@ -1,8 +1,12 @@
 .container{
-    height: 50px;
+    height: 100px;
     background-color: navy;
     color: white;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+}
+.logo{
+    height: 40px;
+    color: white;
 }
