@@ -14,8 +14,10 @@ class Navbar extends React.Component{
                 src={logo} 
                 alt="qwerty"/>
                 </Link>
+                <div className={CSSNav.search}>
                 <input type="text"/>
-                <SearchIcon/>
+                <SearchIcon className={CSSNav.search_icon}/>
+                </div>
                 <div>
                     Hello Guest
                     <div>Sign In</div>

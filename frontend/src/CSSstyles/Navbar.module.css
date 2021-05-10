@@ -3,10 +3,16 @@
     background-color: navy;
     color: white;
     font-size: 20px;
-    font-weight: bold;
-    text-align: center;
+    /* display: flex; */
 }
 .logo{
     height: 40px;
     color: white;
+}
+.search{
+    display: flex;
+    align-items: center;
+}
+.search_icon{
+    background-color: orange;
 }
