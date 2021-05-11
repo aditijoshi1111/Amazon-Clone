@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from './Components/Navbar';
-import { Signin } from './Components/Signin';
+import SignIn from './Components/Signin';
 
 function App() {
   return (
@@ -9,10 +9,12 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact to="/">
-          <Navbar></Navbar>
+          <Navbar/>
         </Route>
        
-         
+        <Route to="/Signin">
+          <SignIn/>
+        </Route>
       </Switch>
     </div>
   </BrowserRouter>

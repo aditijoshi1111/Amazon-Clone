@@ -36,8 +36,24 @@
     border: none;
 }
 .search_icon{
-    background-color: orange;
+    background-color: #cd9042;
+    height: 22px !important;
+    color: black !important;
+    padding: 2px;
 }
-.Signin{
-    color:brown;
+.container div span{
+    font-size: 13px;
+    font-weight: 600;
+}
+.container div{
+    margin: auto 10px;
+}
+
+@media all and (max-width: 600px){
+    .container div{
+        margin: 5px;
+    }
+    .search{
+        visibility: hidden;
+    }
 }
