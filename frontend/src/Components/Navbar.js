@@ -29,7 +29,7 @@ class Navbar extends React.Component {
         <Link to="/returnOrders">
           <div>
             <span>Returns</span>
-            <br />& Orders
+            <br /> Orders
           </div>
         </Link>
 
