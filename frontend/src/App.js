@@ -7,12 +7,13 @@ function App() {
   return (
   <BrowserRouter>
     <div className="App">
+    <Navbar/>
+
       <Switch>
-        <Route exact to="/">
-          <Navbar/>
+        <Route exact path="/">
         </Route>
        
-        <Route to="/Signin">
+        <Route path="/signIn">
           <SignIn/>
         </Route>
       </Switch>

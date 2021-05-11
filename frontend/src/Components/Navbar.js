@@ -28,21 +28,21 @@ class Navbar extends React.Component{
                     </div>
                 </Link>
                 
-                <Link to="returnOrders">
+                <Link to="/returnOrders">
                     <div>
                         <span>Returns</span><br/>
                         & Orders
                     </div>
                 </Link>
                 
-                <Link to="Prim">
+                <Link to="/prime">
                     <div>
                         <span>Your</span><br/>
                         Prime
                     </div>
                 </Link>
                 
-                <Link to="cart">
+                <Link to="/cart">
                     <div>
                         <ShoppingCartIcon/>
                         1
