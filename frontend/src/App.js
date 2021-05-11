@@ -11,7 +11,6 @@ function App() {
         <Route exact to="/">
           <Navbar></Navbar>
         </Route>
-       
          
       </Switch>
     </div>
