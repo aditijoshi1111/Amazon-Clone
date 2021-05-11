@@ -1,0 +1,27 @@
+.container{
+    background-color :#131921;
+    color:white;
+}
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+.list a{
+    text-decoration: none;
+    color: white;
+    margin: 15px;
+    font-weight: bold;
+    font-size: 17px;
+}
+.row a:hover{
+    color: gray;
+}
+.row p a:hover{
+    color: yellow;
+}
+.foot{
+    text-align: center;
+}
+ul{
+    list-style-type: none;
+}
