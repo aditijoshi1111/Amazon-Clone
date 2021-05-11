@@ -6,7 +6,7 @@ import amazon from '../img/amazon.png'
 export const Signin = () => {
     return (
         <div className={CSSlogin.Signin}>
-            <Link to="/Home">
+            <Link to="/">
                 <img className={CSSlogin.amazon} src={amazon} alt="Signin-logo" />
             </Link>
             <div className={CSSlogin.Container}>
