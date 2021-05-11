@@ -4,23 +4,19 @@ import Navbar from "./Components/Navbar";
 import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
 
+
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Navbar />
-
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-
-          <Route path="/signIn">
-            <SignIn />
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+  <BrowserRouter>
+    <div className="App">
+      <Switch>
+        <Route exact to="/">
+         
+          <Navbar></Navbar>
+        </Route>
+      </Switch>
+    </div>
+  </BrowserRouter>
   );
 }
 
