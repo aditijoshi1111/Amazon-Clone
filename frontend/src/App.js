@@ -5,17 +5,23 @@ import Footer from './Components/Footer';
 
 function App() {
   return (
+    <>
   <BrowserRouter>
     <div className="App">
       <Switch>
         <Route exact to="/">
           <Navbar></Navbar>
-          <Footer></Footer>
         </Route>
+
       </Switch>
+      <Footer></Footer>
       
     </div>
   </BrowserRouter>
+  
+  
+  
+  </>
   );
 }
 

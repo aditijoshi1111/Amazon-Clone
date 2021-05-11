@@ -8,8 +8,14 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import MailIcon from '@material-ui/icons/Mail';
 export default function Footer() {
     
+    let footerstyle={
+        position:'relative',
+        top:'100%',
+        width:'100%' ,
+        
+    }
     return (
-        <div className="main-footer">
+        <div className="main-footer" style={footerstyle}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3 col-sm-6">
