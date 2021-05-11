@@ -9,6 +9,7 @@ function App() {
       <Switch>
         <Route exact to="/">
           <Navbar></Navbar>
+          
         </Route>
       </Switch>
     </div>
