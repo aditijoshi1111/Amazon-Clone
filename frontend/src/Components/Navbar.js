@@ -24,7 +24,7 @@ class Navbar extends React.Component{
                 </div>
                 <div>
                     Returns
-                    <div>& Orders</div>
+                    <div> Orders</div>
                 </div>
                 <div>
                     Your
