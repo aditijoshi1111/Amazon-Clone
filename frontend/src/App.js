@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from './Components/Navbar';
+import { Signin } from './Components/Signin';
 
 function App() {
   return (
@@ -9,8 +10,9 @@ function App() {
       <Switch>
         <Route exact to="/">
           <Navbar></Navbar>
-          
         </Route>
+       
+         
       </Switch>
     </div>
   </BrowserRouter>

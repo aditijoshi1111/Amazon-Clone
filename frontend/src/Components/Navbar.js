@@ -9,18 +9,17 @@ class Navbar extends React.Component{
         return(
             <div className={CSSNav.container}>
                 <Link to="/Home">
-                <img
-                className={CSSNav.logo} 
-                src={logo} 
-                alt="qwerty"/>
+                <img className={CSSNav.logo} src={logo} alt="qwerty"/>
                 </Link>
                 <div className={CSSNav.search}>
                 <input type="text"/>
                 <SearchIcon className={CSSNav.search_icon}/>
                 </div>
                 <div>
-                    Hello Guest
+                    Hello Guest 
+                    <Link to="/Signin">
                     <div>Sign In</div>
+                    </Link>
                 </div>
                 <div>
                     Returns
