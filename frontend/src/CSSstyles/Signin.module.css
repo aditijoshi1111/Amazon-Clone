@@ -1,0 +1,57 @@
+.Signin{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background-color: azure;
+     height:100vh; 
+}
+.amazon{
+    margin: 20px 50px;
+    object-fit:contain;
+    height: 60px;
+    width: 200px;
+}
+.login{
+    background: #f0c14b;
+    border-radius: 2px;
+    width:100%;
+    height:30px;
+    border: 1px solid;
+    margin-top:10px;
+    border-color: #a88734 #9c7e31 #846a29;
+}
+.create{
+    background: lightgrey;
+    border-radius: 2px;
+    width:100%;
+    height:30px;
+    border: 1px solid darkgray;
+}
+.Container{
+    width:300px;
+    height: /*fit-content*/ /*relative*/ 400px;
+    display:flex;
+    flex-direction:column;
+    border-radius:5px;
+    background-color: whitesmoke;
+    border: 1px solid lightgrey;
+    padding: 20px;
+}    
+.Container > h1{
+    font-weight: 700;
+    margin: 0; 
+}
+.Container > form > h5{
+    margin-bottom:5px;
+}
+.Container > form > input{
+    height: 30px;
+    background-color: white;
+    width:98%;
+
+}
+.Container > form > p{
+    font-size: 14px ;
+    margin-top: 15px ;
+    line-height: 1.3;
+}

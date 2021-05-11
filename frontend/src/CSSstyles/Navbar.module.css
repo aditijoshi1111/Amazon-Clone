@@ -1,18 +1,59 @@
 .container{
-    height: 100px;
-    background-color: navy;
+    height: 60px;
+    background-color: #131921;
     color: white;
     font-size: 20px;
-    /* display: flex; */
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    position: sticky;
+    padding-right: 10px;
+    line-height: 1.1;
+}
+.container a{
+    text-decoration: none;
+    color: white;
 }
 .logo{
     height: 40px;
     color: white;
+    object-fit: contain;
+    margin-left:20px;
+    margin-top: 20px;
+    margin-right: 10px;
 }
 .search{
     display: flex;
     align-items: center;
+    height: 26px;
+    flex: 1;
+    margin: auto 20px;
+}
+.search input{
+    align-self:stretch;
+    width: 100%;
+    border: none;
 }
 .search_icon{
-    background-color: orange;
+    background-color: #cd9042;
+    height: 22px !important;
+    color: black !important;
+    padding: 2px;
+}
+.container div span{
+    font-size: 13px;
+    font-weight: 600;
+}
+.container div{
+    margin: auto 10px;
+}
+
+@media all and (max-width: 600px){
+    .container div{
+        margin: 5px;
+    }
+    .search{
+        visibility: hidden;
+    }
 }
