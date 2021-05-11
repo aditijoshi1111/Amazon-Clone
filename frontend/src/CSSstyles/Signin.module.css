@@ -29,10 +29,11 @@
 }
 .Container{
     width:300px;
-    height: fit-content;
+    height: /*fit-content*/ /*relative*/ 400px;
     display:flex;
     flex-direction:column;
     border-radius:5px;
+    background-color: whitesmoke;
     border: 1px solid lightgrey;
     padding: 20px;
 }    
