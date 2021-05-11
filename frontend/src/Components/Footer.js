@@ -6,43 +6,25 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import PhoneIcon from '@material-ui/icons/Phone';
 import MailIcon from '@material-ui/icons/Mail';
+import CSSFooter from "../CSSstyles/Footer.module.css";
 export default function Footer() {
     
-    let footerstyle={
-        position:'relative',
-        top:'100%',
-        width:'100%' ,
-        
-    }
+    
     return (
-        <div className="main-footer" style={footerstyle}>
+        <div className={CSSFooter.container}  >
             <div className="container">
                 <div className="row">
                     <div className="col-md-3 col-sm-6">
                 
                         <ul className="list-unstyled">
-                        <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}> <li>SEARCH OUR STORE</li></Link>
-                        <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}> <li>BLOG</li></Link>
-                        <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}> <li>ABOUT US</li></Link>
-                        <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}> <li>CONTACT US</li></Link>
+                        <Link to="" style={{paddingLeft: 5, textDecoration: 'none' }}> <li>SEARCH OUR STORE</li></Link>
+                        <Link to="" style={{paddingLeft: 5, textDecoration: 'none' }}> <li>BLOG</li></Link>
+                        <Link to="" style={{paddingLeft: 5, textDecoration: 'none'}}> <li>ABOUT US</li></Link>
+                        <Link to="" style={{paddingLeft: 5, textDecoration: 'none' }}> <li>CONTACT US</li></Link>
                         </ul>
                     </div>
-                    <div className="col-md-3 col-sm-6">
-                    <ul className="list-unstyled">
-                    <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}>    <li>Github</li></Link>
-                    <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}>      <li>Instagram</li></Link>
-                    <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}>  <li>Facebook</li></Link>
-                    <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}>     <li>Twitter</li></Link>
-                        </ul>
-                    </div>
-                    <div className="col-md-3 col-sm-6">
-                    <ul className="list-unstyled">
-                    <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}>  <li> <GitHubIcon/></li></Link>
-                    <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}>   <li><InstagramIcon></InstagramIcon></li></Link>
-                    <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}>   <li><FacebookIcon/></li></Link>  
-                    <Link to="" style={{paddingLeft: 5, textDecoration: 'none' ,color:'black'}}>   <li><TwitterIcon/></li></Link>   
-                        </ul>
-                    </div>
+    
+                    
                     <div className="col-md-3 col-sm-6">
                     
                         <h4>Our Address</h4>
@@ -54,6 +36,17 @@ export default function Footer() {
                             
                         </ul>
                     </div>
+                    
+                    <div className="col">
+                        
+                    <p> 
+                <br></br><br></br><br></br>
+                        <Link to="" style={{paddingLeft: 1, textDecoration: 'none' ,color:'white'}}>   <GitHubIcon/></Link>     
+                      <Link to="" style={{ textDecoration: 'none' ,color:'white'}}><InstagramIcon></InstagramIcon></Link>
+                      <Link to="" style={{ textDecoration: 'none' ,color:'white'}}>   <FacebookIcon/></Link> 
+                      <Link to="" style={{ textDecoration: 'none' ,color:'white'}}> <TwitterIcon/></Link>  </p></div>
+                        
+                    
 
                 </div>
                 <div className="footer-bottom">
