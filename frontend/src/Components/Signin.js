@@ -10,7 +10,7 @@ export const Signin = () => {
                 <img className={CSSlogin.amazon} src={amazon} alt="Signin-logo" />
             </Link>
             <div className={CSSlogin.Container}>
-                <h1>Sign in</h1>
+                <h1>Sign-in</h1>
                 <form>
                     <h5>E-mail</h5>
                     <input type="email"/>
@@ -27,3 +27,5 @@ export const Signin = () => {
         </div>
     )
 }
+
+export default Signin;

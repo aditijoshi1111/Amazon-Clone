@@ -1,17 +1,21 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from './Components/Navbar';
-import { Signin } from './Components/Signin';
+import SignIn from './Components/Signin';
 
 function App() {
   return (
   <BrowserRouter>
     <div className="App">
+    <Navbar/>
+
       <Switch>
-        <Route exact to="/">
-          <Navbar></Navbar>
+        <Route exact path="/">
         </Route>
-         
+       
+        <Route path="/signIn">
+          <SignIn/>
+        </Route>
       </Switch>
     </div>
   </BrowserRouter>
