@@ -36,7 +36,7 @@ class Navbar extends React.Component {
         <Link to="/prime">
           <div>
             <span>Your</span>
-            <br />
+            <br/>
             Prime
           </div>
         </Link>
