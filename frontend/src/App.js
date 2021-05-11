@@ -1,24 +1,26 @@
-import './App.css';
+import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Navbar from './Components/Navbar';
-import SignIn from './Components/Signin';
+import Navbar from "./Components/Navbar";
+import SignIn from "./Components/Signin";
+import Home from "./Components/Home";
 
 function App() {
   return (
-  <BrowserRouter>
-    <div className="App">
-    <Navbar/>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
 
-      <Switch>
-        <Route exact path="/">
-        </Route>
-       
-        <Route path="/signIn">
-          <SignIn/>
-        </Route>
-      </Switch>
-    </div>
-  </BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+
+          <Route path="/signIn">
+            <SignIn />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
