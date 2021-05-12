@@ -24,6 +24,7 @@ function App() {
           <Route path="/cart">
             <Checkout/>
           </Route>
+          
         </Switch>
         <Footer></Footer>
       </div>
