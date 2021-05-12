@@ -9,7 +9,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className={CSSNav.container}>
-        <Link to="/Home">
+        <Link to="/">
           <img className={CSSNav.logo} src={logo} alt="qwerty" />
         </Link>
 
@@ -29,14 +29,14 @@ class Navbar extends React.Component {
         <Link to="/returnOrders">
           <div>
             <span>Returns</span>
-            <br />& Orders
+            <br /> Orders
           </div>
         </Link>
 
         <Link to="/prime">
           <div>
             <span>Your</span>
-            <br />
+            <br/>
             Prime
           </div>
         </Link>

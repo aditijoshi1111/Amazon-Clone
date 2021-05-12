@@ -11,13 +11,14 @@
     width: 200px;
 }
 .login{
-    background: #f0c14b;
+    background-color: #f0c14b;
     border-radius: 2px;
     width:100%;
     height:30px;
     border: 1px solid;
     margin-top:10px;
-    border-color: #a88734 #9c7e31 #846a29;
+    border-color: #a88734;
+    font-weight: bold;
 }
 .create{
     background: lightgrey;
@@ -46,7 +47,7 @@
     height: 30px;
     background-color: white;
     width:98%;
-
+    font-size: 15px;
 }
 .Container > form > p{
     font-size: 14px ;
