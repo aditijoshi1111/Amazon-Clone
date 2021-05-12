@@ -78,6 +78,7 @@ import React from 'react';
 import CheckCSS from '../CSSstyles/Checkout.module.css'
 import amazonAd from '../img/amazonAd3.jpg'
 import Subtotal from "./Subtotal";
+import {link} from 'react-router-dom';
 function Checkout() {
     
  return(
