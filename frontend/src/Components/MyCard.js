@@ -1,18 +1,27 @@
 import React, { useState } from 'react'
 import CSSMyCard from '../CSSstyles/MyCard.module.css';
 import arrow from '../img/arrow.png';
+import Cards from "./Cards";
 
-export const MyCard = (addCard) => {
+export const MyCard = () => {
     const [sname,setsname]=useState("");
     const [pname,setpname]=useState("");
     const [desc,setdesc]=useState("");
     const [img,setimg]=useState("");
+    const pri=useState(600);
+    const rat=useState(5);
 
     const submit=(e)=>{
         e.preventDefault(); 
         if(!pname || !desc || !sname)
-        alert("To-do Title or Description or Seller name can not be empty!!")
-        addCard(pname,desc,sname,img);
+        alert("To-do Title or Description or Seller name can not be empty!!");
+       /* Cards(pname,desc,sname,img);*/
+        <Cards
+        title={pname}
+        pri={pri}
+        img={img}
+        rat={rat}
+      />
       }
 
     return (
@@ -36,7 +45,7 @@ export const MyCard = (addCard) => {
                     value={sname} onChange={(e)=> {setsname(e.target.value)}} id="sname"/>
                     <br/><br></br>
 
-                    <input type="image" src={arrow} alt="Submit" className={CSSMyCard.arr} />
+                    <input type="image" src={arrow} className={CSSMyCard.arr} />
 
 
                 </form>
