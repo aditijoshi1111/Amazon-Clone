@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
+import ContactUs from "./Components/ContactUs";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
 
           <Route path="/signIn">
             <SignIn />
+          </Route>
+          <Route path="/ContactUs">
+            <ContactUs />
           </Route>
         </Switch>
       </div>
