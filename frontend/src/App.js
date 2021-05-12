@@ -5,6 +5,7 @@ import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
+import ContactUs from './Components/ContactUs';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             <SignIn />
           </Route>
 
+          <Route path="/contactUs">
+            <ContactUs/>
+          </Route>
           <Route path="/cart">
             <Checkout />
           </Route>

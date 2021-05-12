@@ -1,17 +1,17 @@
 var express= require("express");
 const path=require("path");
 var cors=require("cors");
+var multer=require("multer");
 
 var app=express();
 app.use(express.json());
 app.use(express.urlencoded({ extended:true}));
-ap.use(cors());
-app.use(express.static(path.join(__dirname,"../frontend/src/build")));
+app.use(cors());
+app.use(express.static(path.join(__dirname,"../frontend/build")));
 
 
 
 const mongoose=require("mongoose");
-const { fileURLToPath } = require("url");
 mongoose.connect("mongodb://localhost/Products", {useNewUrlParser: true, 
                                                     useUnifiedTopology: true, 
                                                     useCreateIndex:true, 
@@ -22,7 +22,7 @@ mongoose.connection.once('open', ()=>{
     console.log("error");
 })
 
-const ProductSchema= new Mogoose.Schema({
+const ProductSchema= new mongoose.Schema({
     product_name: String,
     image: String,
     description: String,
