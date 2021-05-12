@@ -20,11 +20,10 @@ function App() {
           <Route path="/signIn">
             <SignIn />
           </Route>
-          
+
           <Route path="/cart">
-            <Checkout/>
+            <Checkout />
           </Route>
-          
         </Switch>
         <Footer></Footer>
       </div>
@@ -33,4 +32,3 @@ function App() {
 }
 
 export default App;
-
