@@ -57,6 +57,9 @@ function Home() {
             rat={3}
           />
         </div>
+        <div className={CSSHome.b}>
+          <button className={CSSHome.button} onClick={addCard}>Upload Product</button>
+        </div>
       </div>
     </div>
   );
