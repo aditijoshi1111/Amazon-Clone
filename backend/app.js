@@ -1,40 +1,41 @@
-var express= require("express");
-const path=require("path");
-var cors=require("cors");
-var multer=require("multer");
+const mongoose = require("mongoose");
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
-var app=express();
-app.use(express.json());
-app.use(express.urlencoded({ extended:true}));
+// app.use(express.static(path.join(__dirname, "../frontend/build")));
+//My Routes
+const userRoutes = require("./routes/user");
+//DB connection
+
+mongoose
+  .connect(
+    "mongodb+srv://db:NpSYtogd2B5MNzRD@cluster0.4vsw4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    }
+  )
+  .then(() => {
+    console.log("DB CONNECTED");
+  });
+//Middlewares
+app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(cors());
-app.use(express.static(path.join(__dirname,"../frontend/build")));
 
+// my middlewares
+app.use("/api", userRoutes);
 
+// app.get("/", function(req,res){
+//     res.sendFile(path.join(__dirname,"../frontend/src/App.js"));
+// })
 
-const mongoose=require("mongoose");
-mongoose.connect("mongodb://localhost/Products", {useNewUrlParser: true, 
-                                                    useUnifiedTopology: true, 
-                                                    useCreateIndex:true, 
-                                                    useFindAndModify: false})
-mongoose.connection.once('open', ()=>{
-    console.log("connected to mongodb")
-}).on('error', ()=>{
-    console.log("error");
-})
-
-const ProductSchema= new mongoose.Schema({
-    product_name: String,
-    image: String,
-    description: String,
-    seller_name: String
-})
-
-
-app.get("/", function(req,res){
-    res.sendFile(path.join(__dirname,"../frontend/src/App.js"));
-})
-app.post("/postProduct", function(req, res){
-    console.log(req.body);
-})
-
-app.listen(3001);
+const port = 8000;
+//Starting a server
+app.listen(port, () => {
+  console.log(`app is running at ${port}`);
+});
