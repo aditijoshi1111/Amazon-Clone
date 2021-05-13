@@ -2,13 +2,18 @@ import React from "react";
 import CSSHome from "../CSSstyles/Home.module.css";
 import banner from "../img/banner.jpg";
 import Cards from "./Cards";
+import {Mycard} from "./MyCard";
 
 function Home() {
+  const create=(e)=>{
+    //e.preventDefault(); 
+  }
+
   return (
     <div className={CSSHome.home}>
       <div className={CSSHome.home_container}>
         <img className={CSSHome.home_image} src={banner} alt="o snap" />
-        <div className={CSSHome.home_row}>
+        <div className={CSSHome.home_row}>       
           <Cards
             title="You Can by George Matthew Adams | 6 August 2020"
             pri={150}
@@ -51,6 +56,7 @@ function Home() {
             rat={3}
           />
         </div>
+      <button type="submit" onSubmit={create}>Create your Product</button> 
       </div>
     </div>
   );
