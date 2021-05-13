@@ -26,7 +26,7 @@ function App() {
             <ContactUs/>
           </Route>
           <Route path="/cart">
-            <Checkout />
+            <Checkout/>
           </Route>
         </Switch>
         <Footer></Footer>
