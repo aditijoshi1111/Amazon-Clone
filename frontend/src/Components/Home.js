@@ -9,7 +9,7 @@ function Home() {
     <div className={CSSHome.home}>
       <div className={CSSHome.home_container}>
         <img className={CSSHome.home_image} src={banner} alt="o snap" />
-        <div className={CSSHome.home_row}>
+        <div className={CSSHome.home_row}>       
           <Cards
             title="You Can by George Matthew Adams | 6 August 2020"
             pri={150}
@@ -52,6 +52,7 @@ function Home() {
             rat={3}
           />
         </div>
+        <button type="submit" >Create your Product</button> 
       </div>
     </div>
   );
