@@ -28,7 +28,7 @@ function ContactUs() {
           </button>
         </form>
         <div className={CSSContact.home_row}>
-          <h2>Contact Us At:</h2>
+          <h2>Contact Us</h2>
           <p>Mansi Gulati-mansi1284.cse18@chitkara.edu.in</p>
           <p>Aditi Joshi -aditi1111.cse18@chitkara.edu.in</p>
           <p>Mansi Gulati-mansi1284.cse18@chitkara.edu.in</p>
