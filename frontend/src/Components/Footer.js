@@ -19,7 +19,7 @@ export default function Footer() {
                         <Link to="" > <li>SEARCH OUR STORE</li></Link>
                         <Link to="" > <li>BLOG</li></Link>
                         <Link to="" > <li>ABOUT US</li></Link>
-                        <Link to="" > <li>CONTACT US</li></Link>
+                        <Link to="/contactUs" > <li>CONTACT US</li></Link>
                         </ul>
                     </div>
     
