@@ -78,9 +78,10 @@ import React from 'react';
 import CheckCSS from '../CSSstyles/Checkout.module.css'
 import amazonAd from '../img/amazonAd3.jpg'
 import Subtotal from "./Subtotal";
-//import {link} from 'react-router-dom';
+import {useStateValue} from "./StateProvider";
+import CheckoutProduct from "./CheckoutProduct";
 function Checkout() {
-    
+    const[{basket},dispatch]=useStateValue();
  return(
      
         
@@ -89,9 +90,20 @@ function Checkout() {
        <img className = {CheckCSS.checkoutAd} src = {amazonAd} alt ="Something went wrong" />
        <div>
        <h2 className={CheckCSS.checkout_title}>Your shopping Basket</h2>
+       {
+           basket.map(item=>{
+           return <CheckoutProduct
+            id={item.id}
+            title={item.title}
+            pri={item.pri}
+            img={item.img}
+            rat={item.rat}
+          />
+           })
+         }
         </div>
 
-         <div classNmae={CheckCSS.checkout__right}>
+         <div className={CheckCSS.checkout__right}>
             <Subtotal/>
            <h2 className={CheckCSS.subtext}>The subtotal will go here</h2>
             </div>

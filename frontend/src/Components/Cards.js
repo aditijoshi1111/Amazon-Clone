@@ -3,7 +3,8 @@ import CSSCard from "../CSSstyles/Cards.module.css";
 import {useStateValue} from "./StateProvider";
 
 function Cards({ id, title, img, pri, rat }) {
-  const[state,dispatch]=useStateValue();
+  const[{basket},dispatch]=useStateValue();
+  
  const addToCart=()=>
   {
     dispatch(

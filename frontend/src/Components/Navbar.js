@@ -5,6 +5,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import CSSNav from "../CSSstyles/Navbar.module.css";
 import logo from "../img/logo.png";
 
+
 class Navbar extends React.Component {
   render() {
     return (
