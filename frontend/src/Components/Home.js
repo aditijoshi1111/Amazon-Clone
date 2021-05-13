@@ -2,9 +2,13 @@ import React from "react";
 import CSSHome from "../CSSstyles/Home.module.css";
 import banner from "../img/banner.jpg";
 import Cards from "./Cards";
-//import {Mycard} from "./MyCard";
+import {Mycard} from "./MyCard";
 
 function Home() {
+  const create=(e)=>{
+    //e.preventDefault(); 
+  }
+
   return (
     <div className={CSSHome.home}>
       <div className={CSSHome.home_container}>
@@ -52,7 +56,7 @@ function Home() {
             rat={3}
           />
         </div>
-        <button type="submit" >Create your Product</button> 
+      <button type="submit" onSubmit={create}>Create your Product</button> 
       </div>
     </div>
   );
