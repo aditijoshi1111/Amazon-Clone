@@ -5,6 +5,7 @@ import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
+import Aboutus from "./Components/AboutUs";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
 
           <Route path="/cart">
             <Checkout />
+          </Route>
+
+          <Route path="/aboutus">
+            <Aboutus />
           </Route>
         </Switch>
         <Footer></Footer>
