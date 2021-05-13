@@ -2,6 +2,7 @@ import React from "react";
 import CSSHome from "../CSSstyles/Home.module.css";
 import banner from "../img/banner.jpg";
 import Cards from "./Cards";
+//import {Mycard} from "./MyCard";
 
 function Home() {
   return (

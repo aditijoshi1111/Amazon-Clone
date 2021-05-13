@@ -6,13 +6,14 @@ import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
 import ContactUs from './Components/ContactUs';
+//import {MyCard} from './Components/MyCard';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <MyCard/>
+    
         <Switch>
           <Route exact path="/">
             <Home />
