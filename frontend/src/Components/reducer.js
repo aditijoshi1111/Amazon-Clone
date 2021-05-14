@@ -18,9 +18,9 @@ const reducer=(state,action)=>{
                 {
                 newBasket.splice(index,1);
                 }
-               /* else{
+                else{
                     console.warn("cant remove products with id",action.id)
-                }*/
+                }
                 return{ ...state,
                   basket:newBasket};
             default:

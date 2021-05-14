@@ -1,4 +1,5 @@
 import "./App.css";
+import React,{useState} from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import SignIn from "./Components/Signin";
@@ -9,13 +10,19 @@ import ContactUs from './Components/ContactUs';
 //import {MyCard} from './Components/MyCard';
 
 function App() {
+  const [counter,setCount]=useState(0);
   return (
     <BrowserRouter>
       <div className="App">
+<<<<<<< HEAD
         <Navbar />
+=======
+        <Navbar count={counter} />
+
+>>>>>>> Pallavi_branch
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home count={counter} fun={setCount} />
           </Route>
           <Route path="/signIn">
             <SignIn />
@@ -25,7 +32,7 @@ function App() {
             <ContactUs/>
           </Route>
           <Route path="/cart">
-            <Checkout/>
+            <Checkout count={counter} fun={setCount}/>
           </Route>
         </Switch>
         <Footer></Footer>
