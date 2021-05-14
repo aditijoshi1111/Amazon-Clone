@@ -5,7 +5,12 @@ import Cards from "./Cards";
 //import {useStateValue} from "./StateProvider";
 
 export const MyCard = (props) => {
-
+   /* const card=[];
+    const renderCard=(card,index)=>{
+        return(
+            <Card  />
+        )
+    }*/
 
     const [sname,setsname]=useState("");
     const [pname,setpname]=useState("");
