@@ -3,9 +3,10 @@ import CSSCard from "../CSSstyles/Cards.module.css";
 import CSScheck from "../CSSstyles/CheckoutProduct.module.css"
 import {useStateValue} from "./StateProvider.js";
 
-export default function CheckoutProduct({id,title,img,pri,rat}) {
+export default function CheckoutProduct({id,title,img,pri,rat,count,fun}) {
     const [{basket},dispatch]=useStateValue();
     const removeFromBasket=()=>{
+     fun(count-1);
         dispatch({
             type:"Remove_from_basket",
             id:id,

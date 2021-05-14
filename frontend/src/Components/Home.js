@@ -5,7 +5,11 @@ import Cards from "./Cards";
 import { MyCard } from "./MyCard";
 import { Link } from "react-router-dom";
 
+<<<<<<< HEAD
 function Home(props) {
+=======
+function Home({count,fun}) {
+>>>>>>> 31a2ef29486e306231bda1c7c0d209de3bb3de8b
   
   return (
     <div className={CSSHome.home}>
@@ -18,6 +22,8 @@ function Home(props) {
             pri={150}
             img="https://images-na.ssl-images-amazon.com/images/I/51+R3tGEsvL._SX321_BO1,204,203,200_.jpg"
             rat={5}
+            count={count}
+            fun={fun}
           />
           <Cards
           id={2}
@@ -25,6 +31,8 @@ function Home(props) {
             pri={2039}
             rat={4}
             img="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
+            count={count}
+            fun={fun}
           />
         </div>
         <div className={CSSHome.home_row}>
@@ -34,6 +42,8 @@ function Home(props) {
             pri={64999}
             img="https://images-na.ssl-images-amazon.com/images/I/71E%2BAgYDKtL._SL1500_.jpg"
             rat={4}
+            count={count}
+            fun={fun}
           />
           <Cards
           id={4}
@@ -41,6 +51,8 @@ function Home(props) {
             pri={1199}
             img="https://images-na.ssl-images-amazon.com/images/I/91vQqZNMKCL._SL1500_.jpg"
             rat={3}
+            count={count}
+            fun={fun}
           />
 
           <Cards
@@ -49,6 +61,8 @@ function Home(props) {
             pri={159}
             img="https://images-na.ssl-images-amazon.com/images/I/51oHUvYzbsL._SX327_BO1,204,203,200_.jpg"
             rat={4}
+            count={count}
+            fun={fun}
           />
         </div>
         <div className={CSSHome.home_row}>
@@ -58,6 +72,8 @@ function Home(props) {
             pri={89500}
             img="https://m.media-amazon.com/images/I/81K9Es2DDFL._AC_SX480_SY360_.jpg"
             rat={3}
+            count={count}
+            fun={fun}
           />
         </div>
         <div className={CSSHome.b}>
