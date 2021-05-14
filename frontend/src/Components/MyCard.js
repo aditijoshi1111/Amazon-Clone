@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import CSSMyCard from '../CSSstyles/MyCard.module.css';
 import arrow from '../img/arrow.png';
 import Cards from "./Cards";
+//import {useStateValue} from "./StateProvider";
 
-export const MyCard = () => {
+export const MyCard = (props) => {
+
+
     const [sname,setsname]=useState("");
     const [pname,setpname]=useState("");
     const [desc,setdesc]=useState("");
@@ -13,8 +16,8 @@ export const MyCard = () => {
 
     const submit=(e)=>{
         e.preventDefault(); 
-        if(!pname || !desc || !sname)
-        alert("To-do Title or Description or Seller name can not be empty!!");
+        if(!pname || !img || !price)
+        alert("Product name or Product image or Price can not be empty!!");
        /* Cards(pname,desc,sname,img);*/
         <Cards
         title={pname}
@@ -59,7 +62,7 @@ export const MyCard = () => {
                         </tr>
                     </table>
                     <br></br>
-                    <input type="image" src={arrow} className={CSSMyCard.arr} />
+                    <input type="image" src={arrow} className={CSSMyCard.arr} onClick={submit}/>
 
 
                 </form>

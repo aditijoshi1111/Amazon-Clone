@@ -5,7 +5,7 @@ import Cards from "./Cards";
 import { MyCard } from "./MyCard";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Home(props) {
   
   return (
     <div className={CSSHome.home}>
