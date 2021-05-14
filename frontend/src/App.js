@@ -14,12 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-<<<<<<< HEAD
-        <Navbar />
-=======
         <Navbar count={counter} />
 
->>>>>>> Pallavi_branch
         <Switch>
           <Route exact path="/">
             <Home count={counter} fun={setCount} />
