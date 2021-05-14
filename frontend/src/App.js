@@ -7,7 +7,7 @@ import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
 import ContactUs from './Components/ContactUs';
-//import {MyCard} from './Components/MyCard';
+import {MyCard} from './Components/MyCard';
 
 function App() {
   const [counter,setCount]=useState(0);
@@ -29,6 +29,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <Checkout count={counter} fun={setCount}/>
+          </Route>
+          <Route path="/add">
+            <MyCard/>
           </Route>
         </Switch>
         <Footer></Footer>
