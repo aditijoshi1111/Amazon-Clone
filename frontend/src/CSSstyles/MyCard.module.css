@@ -1,11 +1,13 @@
 .arr{
-    width:35%;
+    width:25%;
     height:60px;
 }
 .card{
     display:flex;
     flex-direction:column;
     align-items:center;
+    margin-bottom: 60px;
+    margin-top: 60px;
     /* height:100vh; */
 }
 .Container{
@@ -17,7 +19,7 @@
     border-radius:5px;
     border: 1px solid lightgrey;
     padding: 20px;
-    background-color: mistyrose;
+    background-color:lightgray;
 }
 .h1{
     font-weight: 700;
@@ -26,6 +28,9 @@
 }
 .Container > form > h5{
     margin-bottom:5px;
+}
+.Container > form > table{
+    border-spacing: 10px;
 }
 .input{
     height: 30px;

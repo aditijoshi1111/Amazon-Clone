@@ -2,6 +2,8 @@ import React from "react";
 import CSSHome from "../CSSstyles/Home.module.css";
 import banner from "../img/banner.jpg";
 import Cards from "./Cards";
+import { MyCard } from "./MyCard";
+import { Link } from "react-router-dom";
 
 function Home() {
   
@@ -59,7 +61,9 @@ function Home() {
           />
         </div>
         <div className={CSSHome.b}>
+          <Link to="/add">
           <button className={CSSHome.button}>Upload Product</button>
+          </Link>
         </div>
       </div>
     </div>
