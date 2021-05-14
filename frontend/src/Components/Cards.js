@@ -1,12 +1,16 @@
 import React from "react";
+
 import CSSCard from "../CSSstyles/Cards.module.css";
 import {useStateValue} from "./StateProvider";
 
-function Cards({ id, title, img, pri, rat }) {
+
+function Cards({ id, title, img, pri, rat,count,fun }) {
   const[{basket},dispatch]=useStateValue();
   
  const addToCart=()=>
   {
+    fun(count+1);
+    
     dispatch(
       {
         type:"Add_to_basket",

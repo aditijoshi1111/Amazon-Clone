@@ -80,7 +80,7 @@ import amazonAd from '../img/amazonAd3.jpg'
 import Subtotal from "./Subtotal";
 import {useStateValue} from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
-function Checkout() {
+function Checkout({count,fun}) {
     const[{basket},dispatch]=useStateValue();
  return(
      
@@ -98,6 +98,8 @@ function Checkout() {
             pri={item.pri}
             img={item.img}
             rat={item.rat}
+            count={count}
+            fun={fun}
           />
            })
          }
