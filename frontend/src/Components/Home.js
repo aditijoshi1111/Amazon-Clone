@@ -5,11 +5,7 @@ import Cards from "./Cards";
 import { MyCard } from "./MyCard";
 import { Link } from "react-router-dom";
 
-<<<<<<< HEAD
-function Home(props) {
-=======
 function Home({count,fun}) {
->>>>>>> 31a2ef29486e306231bda1c7c0d209de3bb3de8b
   
   return (
     <div className={CSSHome.home}>

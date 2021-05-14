@@ -2,7 +2,6 @@ import "./App.css";
 import React,{useState} from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import React, { useState } from 'react';
 import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
