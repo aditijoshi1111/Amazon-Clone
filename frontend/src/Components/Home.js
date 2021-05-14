@@ -4,6 +4,7 @@ import banner from "../img/banner.jpg";
 import Cards from "./Cards";
 
 function Home() {
+  
   return (
     <div className={CSSHome.home}>
       <div className={CSSHome.home_container}>
@@ -58,7 +59,7 @@ function Home() {
           />
         </div>
         <div className={CSSHome.b}>
-          <button className={CSSHome.button} onClick={addCard}>Upload Product</button>
+          <button className={CSSHome.button}>Upload Product</button>
         </div>
       </div>
     </div>
