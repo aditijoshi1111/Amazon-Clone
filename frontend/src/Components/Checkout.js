@@ -33,11 +33,7 @@ function Checkout({count,fun,total,fun1}) {
         </div>
 
          <div className={CheckCSS.checkout__right}>
-<<<<<<< HEAD
-            <Subtotal />
-=======
             <Subtotal count={count}  total={total}/>
->>>>>>> Pallavi_branch
            <h2 className={CheckCSS.subtext}>The subtotal will go here</h2>
             </div>
      </div>
