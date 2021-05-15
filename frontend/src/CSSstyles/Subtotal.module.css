@@ -15,7 +15,7 @@
     height:180px;
     background-color:rgba(0, 0, 255, 0.123);
     border:1px solid #dddddd;
-    position: fixed;
+    position: absolute;
     top: 60px;
     right: 0;
     text-align:center;
