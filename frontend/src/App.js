@@ -5,13 +5,9 @@ import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
-<<<<<<< HEAD
-import Aboutus from "./Components/AboutUs";
 import ContactUs from "./Components/ContactUs";
-=======
-import ContactUs from './Components/ContactUs';
+import AboutUs from "./Components/AboutUs";
 //import {MyCard} from './Components/MyCard';
->>>>>>> 8f07ba9607f5e2e6299e51e60c3d2ca2dde1cfd5
 
 function App() {
   return (
@@ -34,7 +30,7 @@ function App() {
           </Route>
 
           <Route path="/aboutus">
-            <Aboutus />
+            <AboutUs />
           </Route>
         </Switch>
         <Footer></Footer>
