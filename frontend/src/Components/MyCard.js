@@ -24,12 +24,12 @@ export const MyCard = (props) => {
         if(!pname || !img || !price)
         alert("Product name or Product image or Price can not be empty!!");
        /* Cards(pname,desc,sname,img);*/
-        <Cards
+      /*  <Cards
         title={pname}
         price={price}
         img={img}
         rat={rat}
-      />
+      />*/
       }
 
     return (
