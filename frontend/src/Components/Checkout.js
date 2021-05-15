@@ -31,7 +31,7 @@ function Checkout({count,fun}) {
         </div>
 
          <div className={CheckCSS.checkout__right}>
-            <Subtotal/>
+            <Subtotal />
            <h2 className={CheckCSS.subtext}>The subtotal will go here</h2>
             </div>
      </div>
