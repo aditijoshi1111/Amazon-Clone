@@ -9,6 +9,7 @@ import Checkout from "./Components/Checkout";
 
 function App() {
   const [counter,setCount]=useState(0);
+  const [price,setTotal]=useState(0);
   return (
     <BrowserRouter>
       <div className="App">
@@ -16,7 +17,7 @@ function App() {
 
         <Switch>
           <Route exact path="/">
-            <Home count={counter} fun={setCount} />
+            <Home count={counter} fun={setCount} total={price} fun1={setTotal} />
           </Route>
 
           <Route path="/signIn">
@@ -24,7 +25,7 @@ function App() {
           </Route>
           
           <Route path="/cart">
-            <Checkout count={counter} fun={setCount}/>
+            <Checkout count={counter} fun={setCount} total={price} fun1={setTotal}/>
           </Route>
           
         </Switch>

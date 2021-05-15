@@ -3,7 +3,7 @@ import CSSHome from "../CSSstyles/Home.module.css";
 import banner from "../img/banner.jpg";
 import Cards from "./Cards";
 
-function Home({count,fun}) {
+function Home({count,fun,total,fun1}) {
   return (
     <div className={CSSHome.home}>
       <div className={CSSHome.home_container}>
@@ -17,6 +17,8 @@ function Home({count,fun}) {
             rat={5}
             count={count}
             fun={fun}
+            total={total}
+            fun1={fun1}
           />
           <Cards
           id={2}
@@ -26,6 +28,8 @@ function Home({count,fun}) {
             img="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
             count={count}
             fun={fun}
+            total={total}
+            fun1={fun1}
           />
         </div>
         <div className={CSSHome.home_row}>
@@ -37,6 +41,8 @@ function Home({count,fun}) {
             rat={4}
             count={count}
             fun={fun}
+            total={total}
+            fun1={fun1}
           />
           <Cards
           id={4}
@@ -46,6 +52,8 @@ function Home({count,fun}) {
             rat={3}
             count={count}
             fun={fun}
+            total={total}
+            fun1={fun1}
           />
 
           <Cards
@@ -56,6 +64,8 @@ function Home({count,fun}) {
             rat={4}
             count={count}
             fun={fun}
+            total={total}
+            fun1={fun1}
           />
         </div>
         <div className={CSSHome.home_row}>
@@ -67,6 +77,8 @@ function Home({count,fun}) {
             rat={3}
             count={count}
             fun={fun}
+            total={total}
+            fun1={fun1}
           />
         </div>
       </div>
