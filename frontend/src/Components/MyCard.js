@@ -18,7 +18,6 @@ export const MyCard = (props) => {
     const [img,setimg]=useState("");
     const [price,setprice]=useState("");
     const [rat,setrat]=useState("");
-
     const submit=(e)=>{
         e.preventDefault(); 
         if(!pname || !img || !price)
