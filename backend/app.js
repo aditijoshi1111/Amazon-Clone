@@ -1,10 +1,14 @@
-var express= require("express");
-const path=require("path");
-const mongoose=require("mongoose");
+const mongoose = require("mongoose");
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
-var app=express();
-app.use(express.json());
-app.use(express.static(path.join(__dirname,"../frontend/build")));
+// app.use(express.static(path.join(__dirname, "../frontend/build")));
+//My Routes
+const userRoutes = require("./routes/user");
+//DB connection
 
 mongoose
   .connect(
@@ -18,13 +22,20 @@ mongoose
   .then(() => {
     console.log("DB CONNECTED");
   });
+//Middlewares
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(cors());
 
+// my middlewares
+app.use("/api", userRoutes);
 
-app.get("/", function(req,res){
-    res.sendFile(path.join(__dirname,"../frontend/src/App.js"));
-})
-app.post("/postProduct", function(req, res){
-    console.log(req.body);
-})
+// app.get("/", function(req,res){
+//     res.sendFile(path.join(__dirname,"../frontend/src/App.js"));
+// })
 
-app.listen(3001);
+const port = 8000;
+//Starting a server
+app.listen(port, () => {
+  console.log(`app is running at ${port}`);
+});

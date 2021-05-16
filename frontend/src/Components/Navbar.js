@@ -1,11 +1,13 @@
-import React from "react";
+import React  from "react";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SearchIcon from "@material-ui/icons/Search";
 import CSSNav from "../CSSstyles/Navbar.module.css";
 import logo from "../img/logo.png";
 
+
 class Navbar extends React.Component {
+   
   render() {
     return (
       <div className={CSSNav.container}>
@@ -72,15 +74,16 @@ class Navbar extends React.Component {
                 <li>
                   <Link to="/cart">
                     <div>
-                      <ShoppingCartIcon />1
+                      <ShoppingCartIcon />{this.props.count}
                     </div>
                   </Link>
                 </li>
               </ul>
-          </div>
+            </div>
       </div>
     );
   }
 }
 
 export default Navbar;
+
