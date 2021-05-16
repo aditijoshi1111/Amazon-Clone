@@ -18,3 +18,13 @@
   margin-bottom: -150px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
+
+@media all and (max-width: 600px){
+  .home{
+    position: relative;
+    z-index: -2;
+  }
+  .home_image{
+    mask-image: none;
+  }
+}

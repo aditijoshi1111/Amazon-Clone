@@ -1,33 +1,23 @@
 var express= require("express");
 const path=require("path");
-var cors=require("cors");
-var multer=require("multer");
+const mongoose=require("mongoose");
 
 var app=express();
 app.use(express.json());
-app.use(express.urlencoded({ extended:true}));
-app.use(cors());
 app.use(express.static(path.join(__dirname,"../frontend/build")));
 
-
-
-const mongoose=require("mongoose");
-mongoose.connect("mongodb://localhost/Products", {useNewUrlParser: true, 
-                                                    useUnifiedTopology: true, 
-                                                    useCreateIndex:true, 
-                                                    useFindAndModify: false})
-mongoose.connection.once('open', ()=>{
-    console.log("connected to mongodb")
-}).on('error', ()=>{
-    console.log("error");
-})
-
-const ProductSchema= new mongoose.Schema({
-    product_name: String,
-    image: String,
-    description: String,
-    seller_name: String
-})
+mongoose
+  .connect(
+    "mongodb+srv://db:NpSYtogd2B5MNzRD@cluster0.4vsw4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    }
+  )
+  .then(() => {
+    console.log("DB CONNECTED");
+  });
 
 
 app.get("/", function(req,res){
