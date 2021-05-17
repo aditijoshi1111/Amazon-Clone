@@ -4,59 +4,71 @@ import amazon from '../img/amazon.png'
 import {Link} from 'react-router-dom';
 
 export default function MyCard(){
-    const [sname,setsname]=useState("");
-    const [pname,setpname]=useState("");
-    const [desc,setdesc]=useState("");
-    const [img,setimg]=useState("");
-    const [price,setprice]=useState("");
+    const [product_name,setproduct_name]=useState('camera');
+    const [img,setimg]=useState('');
+    const [description,setdescription]=useState('HD Quality');
+    const [seller_name,setseller_name]=useState('qwerty');
+    const [price,setprice]=useState('10000');
+
+
+    function upload(){
+        var form = new FormData();
+        form.append('product_name',product_name);
+        form.append('file',img);
+        form.append('description', description);
+        form.append('seller_name', seller_name);
+        form.append('price',price);
+
+        console.log(img);
+        console.log(form);
+
+        fetch('http://localhost:8000/api/postProduct', {
+            method: 'POST',
+            body: form
+        })
+        .then(response => console.log(response))
+        .then(data => console.log(data))
+        .catch(err => console.log("Error in adding product ",err));
+    }
 
     return (
         <div className={CSSMyCard.main}>
             <Link to="/">
                 <img className={CSSMyCard.amazon} src={amazon} alt="Loading.." />
             </Link>
-            <form className={CSSMyCard.Container}>
+            <div className={CSSMyCard.Container}>
                 <h1 className={CSSMyCard.header}>
                     Add Product 
                 </h1>
                 
                 <h5>Product name</h5>
                 <input type="text" 
-                        value={pname}  
-                        id="pname"
-                        onChange={(e)=> {setpname(e.target.value)}}/>
+                        value="camera"
+                        onChange={(e)=> {setproduct_name(e.target.value)}}/>
 
                 <h5>Image</h5>
-                <input type="file" 
-                        accept="image/*" 
-                        id="img" 
-                        value={img} 
-                        onChange={(e)=> {setimg(e.target.value)}}/>
+                <input type="file"
+                        onChange={(e)=> {setimg(e.target.files[0])}}/>
 
                 <h5>Product description</h5>
-
-                <textarea rows="4" columns="50" 
-                        className={CSSMyCard.textarea} 
-                        value={desc} 
-                        id="desc"
-                        onChange={(e)=> {setdesc(e.target.value)}}/>
+                <textarea className={CSSMyCard.textarea} 
+                        value="HD quality photography"
+                        onChange={(e)=> {setdescription(e.target.value)}}/>
 
                 <h5>Seller name</h5>
                 <input type="text" 
                         className={CSSMyCard.input} 
-                        value={sname} 
-                        id="sname"
-                        onChange={(e)=> {setsname(e.target.value)}}/>        
+                        value="qwerty" 
+                        onChange={(e)=> {setseller_name(e.target.value)}}/>        
 
                 <h5>Price</h5>
                 <input type="number" 
                         className={CSSMyCard.input} 
-                        value={price}  
-                        id="price"
+                        value="10000" 
                         onChange={(e)=> {setprice(e.target.value)}}/>
 
-                <button>Add Product</button>        
-            </form>
+                <button onClick={upload}>Add Product</button>        
+            </div>
         </div>
     )
 }

@@ -7,11 +7,16 @@
     align-items: center;
     font-size: 16px;
     font-weight: 700;
-    position: sticky;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
     padding-right: 10px;
     line-height: 1.1;
     justify-content: space-between;
 }
+/* .logo{
+    position: sticky;
+} */
 .container a{
     text-decoration: none;
     color: white;
@@ -86,7 +91,7 @@
         padding-right: 10px;
         padding-bottom: 5px;
         width: 30px;
-        position: relative;
+        /* position: relative; */
         /* z-index: 10; */
     }
     .hamburger{
