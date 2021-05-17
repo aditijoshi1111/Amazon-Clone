@@ -1,9 +1,39 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import CSSHome from "../CSSstyles/Home.module.css";
 import banner from "../img/banner.jpg";
 import Cards from "./Cards";
 
 function Home({count,fun,total,fun1}) {
+  const [product_List, setproduct_List] = useState([]);
+
+  useEffect(()=>{
+    fetch('http://localhost:8000/api/getAllProducts', {
+      method:'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      for(let i=0;i<data.length;i++){
+        var base64Flag = 'data:image/jpeg;base64,';
+        var imageStr = arrayBufferToBase64(data[i].img.data.data);
+
+        data[i].img = base64Flag + imageStr;
+      }
+      setproduct_List(data);
+    })
+    .catch(err => console.log(err))
+  },[]);
+
+
+  function arrayBufferToBase64(buffer){
+    var binary = '';
+    var bytes = [].slice.call(new Uint8Array(buffer));
+
+    bytes.forEach((b) => binary += String.fromCharCode(b));
+
+    return window.btoa(binary);
+  }
+
   return (
     <div className={CSSHome.home}>
       <div className={CSSHome.home_container}>
@@ -81,6 +111,20 @@ function Home({count,fun,total,fun1}) {
             fun1={fun1}
           />
         </div>
+
+        {product_List.map( item =>{
+          return(
+            <div> 
+              <Cards
+                id={item.id}
+                title={item.Product_name+" - "+item.Product_description}
+                img={item.img}
+                pri={item.Price}
+              />
+            </div>
+          )
+        })
+        }
       </div>
     </div>
   );

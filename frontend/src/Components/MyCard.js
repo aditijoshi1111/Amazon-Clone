@@ -19,14 +19,11 @@ export default function MyCard(){
         form.append('seller_name', seller_name);
         form.append('price',price);
 
-        console.log(img);
-        console.log(form);
-
         fetch('http://localhost:8000/api/postProduct', {
             method: 'POST',
             body: form
         })
-        .then(response => console.log(response))
+        .then(response => response.json())
         .then(data => console.log(data))
         .catch(err => console.log("Error in adding product ",err));
     }

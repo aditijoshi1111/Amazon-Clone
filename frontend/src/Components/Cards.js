@@ -29,6 +29,7 @@ function Cards({ id, title, img, pri, rat,count,fun,total,fun1 }) {
     <div className={CSSCard.card}>
       <div className={CSSCard.info}>
         <p>{title}</p>
+        {console.log(title)}
         <p className={CSSCard.price}>
           <small>Rs.</small>
           <strong>{pri}</strong>
