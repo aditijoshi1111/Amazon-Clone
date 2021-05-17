@@ -5,7 +5,7 @@ import amazonAd from '../img/amazonAd3.jpg'
 import Subtotal from "./Subtotal";
 import {useStateValue} from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
-function Checkout({count,fun}) {
+function Checkout({count,fun,total,fun1}) {
     const[{basket},dispatch]=useStateValue();
  return(
      
@@ -25,13 +25,15 @@ function Checkout({count,fun}) {
             rat={item.rat}
             count={count}
             fun={fun}
+            total={total}
+            fun1={fun1}
           />
            })
          }
         </div>
 
          <div className={CheckCSS.checkout__right}>
-            <Subtotal/>
+            <Subtotal count={count}  total={total}/>
            <h2 className={CheckCSS.subtext}>The subtotal will go here</h2>
             </div>
      </div>

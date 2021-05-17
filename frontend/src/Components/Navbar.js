@@ -11,43 +11,75 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className={CSSNav.container}>
-        <Link to="/">
-          <img className={CSSNav.logo} src={logo} alt="qwerty" />
-        </Link>
-
-        <div className={CSSNav.search}>
-          <input type="text" />
-          <SearchIcon className={CSSNav.search_icon} />
-        </div>
-
-        <Link to="/signIn">
-          <div>
-            <span>Hello Guest</span>
-            <br />
-            Sign In
+          <div  className={CSSNav.logo}>
+            <Link to="/">
+              <img src={logo} alt="qwerty" />
+            </Link>
           </div>
-        </Link>
 
-        <Link to="/returnOrders">
-          <div>
-            <span>Returns</span>
-            <br /> Orders
-          </div>
-        </Link>
+          <div className={CSSNav.list_container}>
 
-        <Link to="/prime">
-          <div>
-            <span>Your</span>
-            <br/>
-            Prime
-          </div>
-        </Link>
+              <input type="checkbox" className={CSSNav.toggler} id="check" />
+              <label for="check" className={CSSNav.hamburger}>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+              </label>
 
-        <Link to="/cart">
-          <div>
-            <ShoppingCartIcon />{this.props.count}
-          </div>
-        </Link>
+              <label for="check" className={CSSNav.cross}>
+                &times;
+              </label>
+            
+              <form className={CSSNav.search}>
+                  <input type="text" />
+                  <SearchIcon className={CSSNav.search_icon} />
+              </form>
+
+              <ul>
+                <li>
+                  <form className={CSSNav.search_pseudo}>
+                    <input type="text" />
+                    <SearchIcon className={CSSNav.search_icon} />
+                  </form>
+                </li>
+                <li>
+                  <Link to="/signIn">
+                    <div>
+                      <span>Hello Guest</span>
+                      <br />
+                      Sign In
+                    </div>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to="/returnOrders">
+                    <div>
+                      <span>Returns</span>
+                      <br /> Orders
+                    </div>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to="/prime">
+                    <div>
+                      <span>Your</span>
+                      <br/>
+                      Prime
+                    </div>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to="/cart">
+                    <div>
+                      <ShoppingCartIcon />{this.props.count}
+                    </div>
+                  </Link>
+                </li>
+              </ul>
+            </div>
       </div>
     );
   }

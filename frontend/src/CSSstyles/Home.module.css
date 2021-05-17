@@ -28,3 +28,13 @@
   background-color:lightsteelblue;
   border-radius: 15px;
 }
+
+@media all and (max-width: 600px){
+  .home{
+    position: relative;
+    z-index: -2;
+  }
+  .home_image{
+    mask-image: none;
+  }
+}
