@@ -62,11 +62,11 @@ class Navbar extends React.Component {
                 </li>
 
                 <li>
-                  <Link to="/prime">
+                  <Link to="/addProduct">
                     <div>
-                      <span>Your</span>
+                      <span>Add</span>
                       <br/>
-                      Prime
+                      Product
                     </div>
                   </Link>
                 </li>

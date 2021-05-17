@@ -1,47 +1,57 @@
-.arr{
-    width:25%;
-    height:60px;
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
-.card{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin-bottom: 60px;
-    margin-top: 60px;
-    /* height:100vh; */
+.amazon{
+    object-fit:contain;
+    height: 60px;
+    max-width: 200px;
+    margin-bottom: 20px;
 }
 .Container{
-    width:300px;
-    align-items:center;
-    height: fit-content;
+    width:320px;
+    margin: auto;
     display:flex;
     flex-direction:column;
     border-radius:5px;
     border: 1px solid lightgrey;
     padding: 20px;
-    background-color:lightgray;
+    background-color:white;
+    margin-bottom: 50px;;
 }
-.h1{
+.header{
     font-weight: 700;
-    margin: 0; 
-    color: darkslategray;
+    align-self: left;
+    margin:0;
+    margin-bottom: 20px;
 }
-.Container > form > h5{
-    margin-bottom:5px;
+.Container > h5{
+    margin: 0;
+    margin-bottom : 5px;
 }
-.Container > form > table{
-    border-spacing: 10px;
-}
-.input{
+.Container > input{
     height: 30px;
     background-color: white;
     width:98%;
     font-size: 15px;
+    margin-bottom: 10px;
 }
-.textarea{
+.Container > textarea{
     border: 2px solid  black;
     height: 50px;
     background-color: white;
     width:98%;
     font-size: 15px;
+    margin-bottom: 10px;
+}
+.Container button{
+    background-color: #f0c14b;
+    border-radius: 2px;
+    width:100%;
+    height:30px;
+    border: 1px solid;
+    border-color: #a88734;
+    font-weight: bold;
 }
