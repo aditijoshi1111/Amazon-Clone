@@ -18,8 +18,13 @@
   margin-bottom: -150px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
-/*.b{
-    border-radius: 2px;
-    height:30px;
-    border: 1px solid darkgray;
-}*/
+.b{
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+  height: 30px;
+}
+.button{
+  background-color:lightsteelblue;
+  border-radius: 15px;
+}

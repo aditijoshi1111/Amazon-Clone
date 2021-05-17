@@ -10,7 +10,6 @@ export const Signin = () => {
             <Link to="/">
                 <img className={CSSlogin.amazon} src={amazon} alt="Signin-logo" />
             </Link>
-            <MyCard/>
             <div className={CSSlogin.Container}>
                 <h1>Sign-in</h1>
                 <form>
