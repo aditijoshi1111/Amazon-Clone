@@ -31,11 +31,7 @@ function App() {
           <Route path="/cart">
             <Checkout count={counter} fun={setCount} total={price} fun1={setTotal}/>
           </Route>
-<<<<<<< HEAD
-         <Route path="/add">
-=======
           <Route path="/addProduct">
->>>>>>> 230ee837a9f7329e3f8277635c6c6f6ae114b8ec
             <MyCard/>
   </Route>
         </Switch>
