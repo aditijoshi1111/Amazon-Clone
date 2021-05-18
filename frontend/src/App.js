@@ -7,10 +7,11 @@ import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
 import ContactUs from './Components/ContactUs';
-import {MyCard} from './Components/MyCard';
+import MyCard from './Components/MyCard';
 
 function App() {
   const [counter,setCount]=useState(0);
+  const [price,setTotal]=useState(0);
   return (
     <BrowserRouter>
       <div className="App">
@@ -18,7 +19,7 @@ function App() {
 
         <Switch>
           <Route exact path="/">
-            <Home count={counter} fun={setCount} />
+            <Home count={counter} fun={setCount} total={price} fun1={setTotal} />
           </Route>
           <Route path="/signIn">
             <SignIn />
@@ -28,9 +29,13 @@ function App() {
             <ContactUs/>
           </Route>
           <Route path="/cart">
-            <Checkout count={counter} fun={setCount}/>
+            <Checkout count={counter} fun={setCount} total={price} fun1={setTotal}/>
           </Route>
+<<<<<<< HEAD
          <Route path="/add">
+=======
+          <Route path="/addProduct">
+>>>>>>> 230ee837a9f7329e3f8277635c6c6f6ae114b8ec
             <MyCard/>
   </Route>
         </Switch>
