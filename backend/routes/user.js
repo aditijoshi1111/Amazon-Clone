@@ -4,7 +4,7 @@ const {
   login,
   isAuthenticated,
   isAdmin,
-  logOut,
+  logOut
 } = require("../controllers/auth");
 const {
   getUserById,
@@ -13,11 +13,15 @@ const {
   deleteUserById
 } = require("../controllers/user");
 const router = express.Router();
+const upload = require("../controllers/multer");
+const prod=require("../controllers/prod")
 
 //auth
 router.post("/signup", signup);
 router.post("/signin", login);
 router.get("/signout", logOut);
+router.post("/postProduct", upload, prod.addProduct);
+router.get("/getAllProducts",prod.getAllProducts);
 
 //users
 router.get("/user/:userId", isAuthenticated, getUserById);

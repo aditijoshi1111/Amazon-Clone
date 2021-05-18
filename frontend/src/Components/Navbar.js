@@ -20,13 +20,13 @@ class Navbar extends React.Component {
           <div className={CSSNav.list_container}>
 
               <input type="checkbox" className={CSSNav.toggler} id="check" />
-              <label for="check" className={CSSNav.hamburger}>
+              <label htmlFor="check" className={CSSNav.hamburger}>
                   <div></div>
                   <div></div>
                   <div></div>
               </label>
 
-              <label for="check" className={CSSNav.cross}>
+              <label htmlFor="check" className={CSSNav.cross}>
                 &times;
               </label>
             
@@ -62,11 +62,11 @@ class Navbar extends React.Component {
                 </li>
 
                 <li>
-                  <Link to="/prime">
+                  <Link to="/addProduct">
                     <div>
-                      <span>Your</span>
+                      <span>Add</span>
                       <br/>
-                      Prime
+                      Product
                     </div>
                   </Link>
                 </li>

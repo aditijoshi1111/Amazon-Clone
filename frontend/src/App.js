@@ -1,4 +1,3 @@
-
 import "./App.css";
 import React,{useState} from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -8,7 +7,7 @@ import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
 import ContactUs from './Components/ContactUs';
-import {MyCard} from './Components/MyCard';
+import MyCard from './Components/MyCard';
 
 function App() {
   const [counter,setCount]=useState(0);
@@ -32,7 +31,7 @@ function App() {
           <Route path="/cart">
             <Checkout count={counter} fun={setCount} total={price} fun1={setTotal}/>
           </Route>
-          <Route path="/add">
+          <Route path="/addProduct">
             <MyCard/>
           </Route>
         </Switch>

@@ -11,7 +11,9 @@
   background-color: white;
   z-index: 1;
 }
-
+.card:hover{
+  box-shadow: 0 3px 10px 1px rgba(0,0,0,0.1);
+}
 .price {
   margin-top: 5px;
 }
@@ -30,7 +32,9 @@
   border-color: #a88734 #9c7e31 #845a29;
   color: #111;
 }
-
+.btn:hover{
+  background-color: orange;
+}
 .info {
   height: 100px;
   margin-bottom: 15px;

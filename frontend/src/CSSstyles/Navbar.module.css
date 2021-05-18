@@ -7,11 +7,16 @@
     align-items: center;
     font-size: 16px;
     font-weight: 700;
-    position: sticky;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
     padding-right: 10px;
     line-height: 1.1;
     justify-content: space-between;
 }
+/* .logo{
+    position: sticky;
+} */
 .container a{
     text-decoration: none;
     color: white;
@@ -65,6 +70,9 @@
     padding: 0;
     margin: 0;
 }
+.list_container ul li:hover{
+    text-shadow:  1px 0 1px whitesmoke;
+}
 .container div span{
     font-size: 13px;
     font-weight: 600;
@@ -77,7 +85,7 @@
 }
 
 
-@media all and (max-width: 600px){
+@media all and (max-width: 650px){
     .search{
         display: none;
     }
@@ -86,7 +94,7 @@
         padding-right: 10px;
         padding-bottom: 5px;
         width: 30px;
-        position: relative;
+        /* position: relative; */
         /* z-index: 10; */
     }
     .hamburger{

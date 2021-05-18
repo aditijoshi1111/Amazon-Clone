@@ -1,9 +1,8 @@
-const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const mongoose = require("mongoose");
 
 // app.use(express.static(path.join(__dirname, "../frontend/build")));
 //My Routes
@@ -23,7 +22,8 @@ mongoose
     console.log("DB CONNECTED");
   });
 //Middlewares
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}))
 app.use(cookieParser());
 app.use(cors());
 
