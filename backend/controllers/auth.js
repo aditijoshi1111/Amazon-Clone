@@ -32,7 +32,9 @@ async function login(req, res) {
       //console.log(user.autheticate(password))
       if (user.autheticate(password)) {
         // token
-        const token = jwt.sign({ id: user["_id"] }, "dsgisgsfsgnflnf");
+        const token = jwt.sign({ id: user["_id"] }, "dsgisgsfsgnflnf", {
+          expiresIn: "86400s",
+        });
 
         res.cookie("jwt", token, { httpOnly: true });
 
