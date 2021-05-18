@@ -11,7 +11,8 @@ export default function MyCard(){
     const [price,setprice]=useState('');
 
 
-    function upload(){
+    function upload(e){
+        e.preventDefault();
         var form = new FormData();
         form.append('product_name',product_name);
         form.append('file',img);
@@ -24,8 +25,19 @@ export default function MyCard(){
             body: form
         })
         .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(err => console.log("Error in adding product ",err));
+        .then(data => {
+            console.log(data);
+            if(data.length==0){
+            alert("Sorry, request failed.");
+            }
+            else{
+            alert("Product added successfully.");
+            }
+        })
+        .catch(err => console.log("Error in adding product ",err))
+
+        
+        e.target.reset();
     }
 
     return (
@@ -33,7 +45,7 @@ export default function MyCard(){
             <Link to="/">
                 <img className={CSSMyCard.amazon} src={amazon} alt="Loading.." />
             </Link>
-            <div className={CSSMyCard.Container}>
+            <form className={CSSMyCard.Container} onSubmit={upload}>
                 <h1 className={CSSMyCard.header}>
                     Add Product 
                 </h1>
@@ -64,8 +76,8 @@ export default function MyCard(){
                         value={price}
                         onChange={(e)=> {setprice(e.target.value)}}/>
 
-                <button onClick={upload}>Add Product</button>        
-            </div>
+                <button type="submit">Add Product</button>        
+            </form>
         </div>
     )
 }

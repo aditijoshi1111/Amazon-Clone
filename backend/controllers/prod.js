@@ -8,6 +8,7 @@ mongoose.set('useFindAndModify', false);
 
 async function addProduct(req,res){
     try{
+        console.log(req.file.filename);
         var newProduct={
             Product_name: req.body.product_name,
             img: {
@@ -16,9 +17,9 @@ async function addProduct(req,res){
             },
             Product_description: req.body.description,
             Seller_name: req.body.seller_name,
-            Price: req.body.price
+            Price: req.body.price,
+            filename: req.file.filename
         }
-        console.log(newProduct);
     
         const response= await new Product(newProduct).save()
         res.json(response);
@@ -26,6 +27,7 @@ async function addProduct(req,res){
     }
     catch(error){
         console.log("Error while adding product:- ",error);
+        res.json([]);
     }
 }
 
@@ -37,12 +39,19 @@ async function getAllProducts(req,res){
     }
     catch(error){
         console.log("Error getting All products:- ",error);
+        res.json([]);
     }
 }
 
 async function removeProduct(req,res){
     try{
         let id=req.params.id;
+
+        const image= await productModel.findById({_id:id});
+        var filePath=path.join(__dirname,"../uploads/",image.filename);
+        fs.unlinkSync(filePath);
+
+
         const item=await productModel.findByIdAndRemove({_id: id}, function(err,data){
             if(!err) console.log("deleted product!");
         });
