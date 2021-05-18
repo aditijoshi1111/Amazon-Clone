@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CSSlogin from '../CSSstyles/Signin.module.css';
 import amazon from '../img/amazon.png'
-import { MyCard } from './MyCard'
 
 export const Signin = () => {
     return (

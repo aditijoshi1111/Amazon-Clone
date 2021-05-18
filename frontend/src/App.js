@@ -6,9 +6,14 @@ import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
+<<<<<<< HEAD
 import ContactUs from "./Components/ContactUs";
 import AboutUs from "./Components/AboutUs";
 //import {MyCard} from './Components/MyCard';
+=======
+import ContactUs from './Components/ContactUs';
+import MyCard from './Components/MyCard';
+>>>>>>> 441a098047aeb1033886e2fb84db204a2c28dd2d
 
 function App() {
   const [counter, setCount] = useState(0);
@@ -42,12 +47,17 @@ function App() {
               fun1={setTotal}
             />
           </Route>
+<<<<<<< HEAD
           <Route path="/add">
             <MyCard />
           </Route>
 
           <Route path="/aboutus">
             <AboutUs />
+=======
+          <Route path="/addProduct">
+            <MyCard/>
+>>>>>>> 441a098047aeb1033886e2fb84db204a2c28dd2d
           </Route>
         </Switch>
         <Footer></Footer>
