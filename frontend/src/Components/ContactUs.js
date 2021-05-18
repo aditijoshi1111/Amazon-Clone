@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 import CSSContact from "../CSSstyles/ContactUs.module.css";
 
 function ContactUs() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    msg: "",
+  });
+  let name, value;
+  const handleInput = (e) => {
+    name = e.target.name;
+    value = e.target.value;
+    setUser({ ...user, [name]: value });
+  };
   return (
     <div className={CSSContact.container}>
       <img
@@ -14,13 +25,32 @@ function ContactUs() {
         <h1 className={CSSContact.heading}>Contact Us</h1>
         <form>
           <h4>Name</h4>
-          <input type="text" />
+          <input
+            type="text"
+            value={user.name}
+            onChange={handleInput}
+            placeholder="Your name"
+            name="name"
+          />
           <br />
           <h4>E-mail</h4>
-          <input type="email" />
+          <input
+            type="email"
+            s
+            value={user.email}
+            onChange={handleInput}
+            placeholder="Your email"
+            name="email"
+          />
           <br />
           <h4>Message</h4>
-          <input type="text" />
+          <input
+            type="text"
+            value={user.msg}
+            onChange={handleInput}
+            placeholder="Description"
+            name="msg"
+          />
           <br />
 
           <button type="submit" className={CSSContact.btn}>
