@@ -25,8 +25,19 @@ function Cards({ id, title, img, pri, rat,count,fun,total,fun1 }) {
       }
     )
   }
+
+  const removeProduct = ()=>{
+    fetch('http://localhost:8000/api/removeProduct/'+id)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch( error => console.log("Error in deleting product:- "+error))
+
+    window.location.reload(false);
+  }
   return (
-    <div className={CSSCard.card}>
+    <div id={id} className={CSSCard.card}>
       <div className={CSSCard.info}>
         <p>{title}</p>
         <p className={CSSCard.price}>
@@ -41,8 +52,11 @@ function Cards({ id, title, img, pri, rat,count,fun,total,fun1 }) {
             ))}
         </div>
       </div>
+
       <img className={CSSCard.image} src={img} alt="o snap" />
-      <button className={CSSCard.btn} onClick={addToCart}>Add to basket</button>
+
+      <button className={CSSCard.addtocart} onClick={addToCart}>Add to basket</button>
+      <button className={CSSCard.remove} onClick={removeProduct}>Remove Product</button>
     </div>
   )
 }

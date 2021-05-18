@@ -116,7 +116,7 @@ function Home({count,fun,total,fun1}) {
           return(
             <div> 
               <Cards
-                id={item.id}
+                id={item._id}
                 title={item.Product_name+" - "+item.Product_description}
                 img={item.img}
                 pri={item.Price}

@@ -4,11 +4,11 @@ import amazon from '../img/amazon.png'
 import {Link} from 'react-router-dom';
 
 export default function MyCard(){
-    const [product_name,setproduct_name]=useState('camera');
+    const [product_name,setproduct_name]=useState('');
     const [img,setimg]=useState('');
-    const [description,setdescription]=useState('HD Quality');
-    const [seller_name,setseller_name]=useState('qwerty');
-    const [price,setprice]=useState('10000');
+    const [description,setdescription]=useState('');
+    const [seller_name,setseller_name]=useState('');
+    const [price,setprice]=useState('');
 
 
     function upload(){
@@ -40,7 +40,7 @@ export default function MyCard(){
                 
                 <h5>Product name</h5>
                 <input type="text" 
-                        value="camera"
+                        value={product_name}
                         onChange={(e)=> {setproduct_name(e.target.value)}}/>
 
                 <h5>Image</h5>
@@ -49,19 +49,19 @@ export default function MyCard(){
 
                 <h5>Product description</h5>
                 <textarea className={CSSMyCard.textarea} 
-                        value="HD quality photography"
+                        value={description}
                         onChange={(e)=> {setdescription(e.target.value)}}/>
 
                 <h5>Seller name</h5>
                 <input type="text" 
                         className={CSSMyCard.input} 
-                        value="qwerty" 
+                        value={seller_name} 
                         onChange={(e)=> {setseller_name(e.target.value)}}/>        
 
                 <h5>Price</h5>
                 <input type="number" 
                         className={CSSMyCard.input} 
-                        value="10000" 
+                        value={price}
                         onChange={(e)=> {setprice(e.target.value)}}/>
 
                 <button onClick={upload}>Add Product</button>        

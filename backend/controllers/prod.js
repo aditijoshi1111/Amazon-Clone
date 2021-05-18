@@ -1,8 +1,10 @@
 var mongoose=require('mongoose');
-var Product=require('../models/products');
+var productModel=require('../models/products');
 // var x=require('../uploads')
 var fs=require('fs');
 var path=require('path');
+
+mongoose.set('useFindAndModify', false);
 
 async function addProduct(req,res){
     try{
@@ -29,7 +31,7 @@ async function addProduct(req,res){
 
 async function getAllProducts(req,res){
     try{
-        var response = await Product.find();
+        var response = await productModel.find();
         res.json(response);
         return response;
     }
@@ -38,5 +40,18 @@ async function getAllProducts(req,res){
     }
 }
 
+async function removeProduct(req,res){
+    try{
+        let id=req.params.id;
+        const item=await productModel.findByIdAndRemove({_id: id}, function(err,data){
+            if(!err) console.log("deleted product!");
+        });
+        return item;
+    }
+    catch(error){
+        console.log("Error deleting a product:- ",error);
+    }
+}
 module.exports.addProduct= addProduct;
 module.exports.getAllProducts = getAllProducts;
+module.exports.removeProduct = removeProduct;
