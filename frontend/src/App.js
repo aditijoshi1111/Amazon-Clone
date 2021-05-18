@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import SignIn from "./Components/Signin";
@@ -9,11 +9,15 @@ import Checkout from "./Components/Checkout";
 import ContactUs from "./Components/ContactUs";
 import MyCard from "./Components/MyCard";
 import SignUp from "./Components/Signup";
+import { isAutheticated } from "./apis/auth";
 
 function App() {
   const [counter, setCount] = useState(0);
   const [price, setTotal] = useState(0);
   const [name, setName] = useState("Guest");
+  useEffect(() => {
+    if (isAutheticated()) setName(isAutheticated().user.name);
+  }, []);
 
   // console.log(name)
   return (
