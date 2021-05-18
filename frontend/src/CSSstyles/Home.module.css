@@ -5,6 +5,7 @@
   margin-right: auto;
   max-width: 1500px;
   background-color: whitesmoke;
+  overflow: hidden;
 }
 .home_row {
   display: flex;
