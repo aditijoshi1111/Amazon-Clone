@@ -8,15 +8,15 @@ export const MyCard = () => {
   const [pname, setpname] = useState("");
   const [desc, setdesc] = useState("");
   const [img, setimg] = useState("");
-  const pri = useState(600);
-  const rat = useState(5);
+  const [price, setprice] = useState("");
+  const [rat, setrat] = useState("");
 
   const submit = (e) => {
     e.preventDefault();
     if (!pname || !desc || !sname)
       alert("To-do Title or Description or Seller name can not be empty!!");
     /* Cards(pname,desc,sname,img);*/
-    <Cards title={pname} pri={pri} img={img} rat={rat} />;
+    <Cards title={pname} price={price} img={img} rat={rat} />;
   };
 
   return (
@@ -72,7 +72,36 @@ export const MyCard = () => {
           />
           <br />
           <br></br>
-
+          <table>
+            <tr>
+              <td>
+                <h5>Price</h5>
+                <input
+                  type="number"
+                  className={CSSMyCard.input}
+                  value={price}
+                  onChange={(e) => {
+                    setprice(e.target.value);
+                  }}
+                  id="price"
+                />
+              </td>
+              <td>
+                <h5>Rating</h5>
+                <input
+                  type="number"
+                  maxlength="1"
+                  className={CSSMyCard.input}
+                  value={rat}
+                  onChange={(e) => {
+                    setrat(e.target.value);
+                  }}
+                  id="rat"
+                />
+              </td>
+            </tr>
+          </table>
+          <br></br>
           <input type="image" src={arrow} className={CSSMyCard.arr} />
         </form>
       </div>
