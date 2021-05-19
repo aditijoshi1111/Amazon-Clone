@@ -53,13 +53,8 @@ function App() {
             />
           </Route>
           <Route path="/addProduct">
-<<<<<<< HEAD
-            <MyCard/>
-  </Route>
-=======
             <MyCard />
           </Route>
->>>>>>> 10843e9db8934034b50d44bff111d473be8990fe
         </Switch>
         <Footer></Footer>
       </div>
