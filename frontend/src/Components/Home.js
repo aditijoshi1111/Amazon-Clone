@@ -12,7 +12,7 @@ function Home({count,fun,total,fun1}) {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      //console.log(data);
       for(let i=0;i<data.length;i++){
         var base64Flag = 'data:image/jpeg;base64,';
         var imageStr = arrayBufferToBase64(data[i].img.data.data);
@@ -111,20 +111,20 @@ function Home({count,fun,total,fun1}) {
             fun1={fun1}
           />
         </div>
-
-        {product_List.map( item =>{
-          return(
-            <div> 
-              <Cards
-                id={item.id}
-                title={item.Product_name+" - "+item.Product_description}
-                img={item.img}
-                pri={item.Price}
-              />
-            </div>
-          )
-        })
-        }
+        <div className={CSSHome.home_row1}>
+          {product_List.map( item =>{
+            return(
+                <Cards
+                  id={item._id}
+                  title={item.Product_name+" - "+item.Product_description}
+                  img={item.img}
+                  pri={item.Price}
+                  rat={5}
+                />
+            )
+          })
+          }
+        </div>
       </div>
     </div>
   );
