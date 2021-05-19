@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SearchIcon from "@material-ui/icons/Search";
 import CSSNav from "../CSSstyles/Navbar.module.css";
@@ -14,7 +14,7 @@ class Navbar extends React.Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.name);
+    //console.log(nextProps.name);
     if (this.props.name !== nextProps.name) {
       this.setState({ name: nextProps.name });
     }
@@ -22,7 +22,7 @@ class Navbar extends React.Component {
   // componentDidUpdate(prevProps){
   //   if(prevProps.name!== this.props.name)
   //     this.setState({ name: this.props.name });
-    
+
   // }
 
   render() {
@@ -62,19 +62,20 @@ class Navbar extends React.Component {
               {!isAutheticated() ? (
                 <Link to="/signIn">
                   <div>
-                    hello {this.state.name}
+                    Hello {this.state.name}
                     <br />
                     Sign In
                   </div>
                 </Link>
               ) : (
-                <Link to="/">
+                <Link>
                   <div>
-                    hello {this.state.name}
+                    Hello {this.state.name}
                     <br />
                     <span
                       onClick={() =>
                         signout(() => {
+                          this.props.history.push("/signIn");
                           this.props.setName("Guest");
                         })
                       }
@@ -121,4 +122,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
