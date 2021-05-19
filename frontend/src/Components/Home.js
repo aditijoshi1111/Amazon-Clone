@@ -111,20 +111,20 @@ function Home({count,fun,total,fun1}) {
             fun1={fun1}
           />
         </div>
-
-        {product_List.map( item =>{
-          return(
-            <div> 
-              <Cards
-                id={item._id}
-                title={item.Product_name+" - "+item.Product_description}
-                img={item.img}
-                pri={item.Price}
-              />
-            </div>
-          )
-        })
-        }
+        <div className={CSSHome.home_row1}>
+          {product_List.map( item =>{
+            return(
+                <Cards
+                  id={item._id}
+                  title={item.Product_name+" - "+item.Product_description}
+                  img={item.img}
+                  pri={item.Price}
+                  rat={5}
+                />
+            )
+          })
+          }
+        </div>
       </div>
     </div>
   );
