@@ -11,7 +11,9 @@
   background-color: white;
   z-index: 1;
 }
-
+.card:hover{
+  box-shadow: 0 3px 10px 1px rgba(0,0,0,0.1);
+}
 .price {
   margin-top: 5px;
 }
@@ -24,21 +26,32 @@
   object-fit: contain;
   margin-bottom: 15px;
 }
-.btn {
+.addtocart{
   background-color: #f0c14b;
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #845a29;
   color: #111;
 }
-
+.addtocart:hover{
+  background-color: orange;
+}
+.remove{
+  background-color: rgb(245, 91, 91);
+  margin-top: 10px;
+  border-color: rgb(224, 87, 87);
+  color: #111;
+}
+.remove:hover{
+  background-color: red;
+}
 .info {
   height: 100px;
   margin-bottom: 15px;
 }
 
-
+/* 
 @media all and (max-width: 600px){
   .card{
     z-index: 1;
   }
-}
+} */
