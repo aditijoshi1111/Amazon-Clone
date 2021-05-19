@@ -38,20 +38,9 @@ function Cards({ id, title, img, pri, rat,count,fun,total,fun1 }) {
   }
   return (
     <div id={id} className={CSSCard.card}>
-      <div className={CSSCard.info}>
-        <p>{title}</p>
-        <p className={CSSCard.price}>
-          <small>Rs.</small>
-          <strong>{pri}</strong>
-        </p>
-        <div className={CSSCard.rating}>
-          {Array(rat)
-            .fill()
-            .map((_, i) => (
-              <p>🌟</p>
-            ))}
-        </div>
-      </div>
+      <div className={CSSCard.title}>{title}</div>
+      <strong className={CSSCard.price}>Rs. {pri}</strong>
+      <div className={CSSCard.rating}>{Array(rat).fill().map((_, i) => {return <p>🌟</p>})}</div>
 
       <img className={CSSCard.image} src={img} alt="o snap" />
 

@@ -27,7 +27,7 @@ export default function MyCard(){
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            if(data.length==0){
+            if(data.length===0){
             alert("Sorry, request failed.");
             }
             else{
