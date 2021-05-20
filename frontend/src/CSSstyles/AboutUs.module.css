@@ -1,6 +1,5 @@
 .container {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 10px;
 }
 .container > h1 {
   justify-content: center;
@@ -20,7 +19,7 @@
   display: flex;
 }
 .project {
-  padding: 15px;
+  padding: 15px; 
   margin: 10px;
 }
 .team {

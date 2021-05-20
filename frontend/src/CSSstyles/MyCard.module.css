@@ -9,7 +9,7 @@
     height: 60px;
     max-width: 200px;
     margin-bottom: 20px;
-    margin-top: 70px;
+    /* margin-top: 70px; */
 }
 .Container{
     width:320px;
@@ -55,4 +55,7 @@
     border: 1px solid;
     border-color: #a88734;
     font-weight: bold;
+}
+.Container button:hover{
+    background-color: #ffce51;
 }
