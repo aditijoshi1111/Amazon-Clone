@@ -53,8 +53,16 @@
   color: #111;
   justify-self: flex-end;
 }
-.remove:hover{
+.remove, .poprem.popremove{
   background-color: red;
+}
+.popremove{
+  background-color: #f04b4b;
+  margin-top: 5px;
+  margin-left: 650px;
+  border-color: #a83434 #9c3131 #842929;
+  color: #111;
+  justify-self: flex-end;
 }
 .title{
   margin-bottom: 15px;

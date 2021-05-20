@@ -58,9 +58,9 @@ function Cards({ id, title, img, pri, rat,count,fun,total,fun1 }) {
             <img className={CSSCard.popimage} src={img}></img>
             <div>
             <strong className={CSSCard.price}>Rs. {pri}</strong>
-      <div className={CSSCard.rating}>{Array(rat).fill().map((_, i) => {return <p>🌟</p>})}</div>
-      <button className={CSSCard.addtocart} onClick={addToCart}>Add to basket</button>
-      <button className={CSSCard.remove} onClick={removeProduct}>Remove Product</button>
+             <div className={CSSCard.rating}>{Array(rat).fill().map((_, i) => {return <p>🌟</p>})}</div>
+            <button className={CSSCard.addtocart} onClick={addToCart}>Add to basket</button>
+            <button className={CSSCard.popremove} onClick={removeProduct}>Remove Product</button>
             </div>
            </p>
            </OpenCard>
