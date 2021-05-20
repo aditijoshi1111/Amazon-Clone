@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 // app.use(express.static(path.join(__dirname, "../frontend/build")));
 //My Routes
 const userRoutes = require("./routes/user");
+const productRoutes = require("./routes/product");
 //DB connection
 
 mongoose
@@ -29,6 +30,7 @@ app.use(cors());
 
 // my middlewares
 app.use("/api", userRoutes);
+app.use("/api",productRoutes);
 
 // app.get("/", function(req,res){
 //     res.sendFile(path.join(__dirname,"../frontend/src/App.js"));
