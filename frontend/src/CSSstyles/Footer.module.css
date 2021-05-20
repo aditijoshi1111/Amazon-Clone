@@ -9,19 +9,23 @@
 .list a{
     text-decoration: none;
     color: white;
-    margin: 15px;
-    font-weight: bold;
-    font-size: 17px;
+    margin:0;
+    font-size: 15px;
 }
 .row a:hover{
-    color: gray;
-}
-.row p a:hover{
-    color: yellow;
+    color: lightgrey;
 }
 .foot{
     text-align: center;
 }
 ul{
     list-style-type: none;
+}
+.social{
+    color: white;
+    padding: 5px;
+}
+.social:hover{
+    color: grey;
+    transition: 8ms ease-in-out;
 }

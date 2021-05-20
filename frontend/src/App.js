@@ -10,6 +10,7 @@ import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
+import AboutUs from './Components/AboutUs'
 import ContactUs from "./Components/ContactUs";
 <<<<<<< HEAD
 import AboutUs from "./Components/AboutUs";
@@ -40,6 +41,7 @@ function App() {
         <Navbar count={counter} name={name} setName={setName} />
 
         <Switch>
+
           <Route exact path="/">
             <Home
               count={counter}
@@ -48,16 +50,19 @@ function App() {
               fun1={setTotal}
             />
           </Route>
+
           <Route path="/signIn">
             <SignIn setName={setName} />
           </Route>
+
           <Route path="/signUp">
             <SignUp />
           </Route>
-
-          <Route path="/contactUs">
-            <ContactUs />
+          
+          <Route path="/addProduct">
+            <MyCard />
           </Route>
+
           <Route path="/cart">
             <Checkout
               count={counter}
@@ -76,11 +81,18 @@ function App() {
 =======
 >>>>>>> 10843e9db8934034b50d44bff111d473be8990fe
           </Route>
-          <Route path="/addProduct">
-            <MyCard />
+          
+          <Route path="/aboutUs">
+            <AboutUs />
           </Route>
+          
+          <Route path="/contactUs">
+            <ContactUs />
+          </Route>
+
         </Switch>
-        <Footer></Footer>
+
+        <Footer/>
       </div>
     </BrowserRouter>
   );

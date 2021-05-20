@@ -62,27 +62,22 @@ class Navbar extends React.Component {
               {!isAutheticated() ? (
                 <Link to="/signIn">
                   <div>
-                    Hello {this.state.name}
+                    <span>Hello {this.state.name}</span>
                     <br />
                     Sign In
                   </div>
                 </Link>
               ) : (
-                <Link>
+                <Link onClick={() =>
+                  signout(() => {
+                    this.props.history.push("/signIn");
+                    this.props.setName("Guest");
+                  })
+                }>
                   <div>
-                    Hello {this.state.name}
+                    <span>Hello {this.state.name}</span>
                     <br />
-                    <span
-                      onClick={() =>
-                        signout(() => {
-                          this.props.history.push("/signIn");
-                          this.props.setName("Guest");
-                        })
-                      }
-                    >
-                      {" "}
-                      Sign Out
-                    </span>
+                    Sign Out
                   </div>
                 </Link>
               )}
