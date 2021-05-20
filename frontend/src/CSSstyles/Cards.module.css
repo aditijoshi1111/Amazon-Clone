@@ -30,6 +30,12 @@
   object-fit: contain;
   margin-bottom: 15px;
 }
+.popimage {
+  height: 300px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
 .addtocart{
   background-color: #f0c14b;
   margin-top: 10px;

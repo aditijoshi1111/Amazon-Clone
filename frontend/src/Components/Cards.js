@@ -7,7 +7,10 @@ import {useStateValue} from "./StateProvider";
 
 function Cards({ id, title, img, pri, rat,count,fun,total,fun1 }) {
   const[{basket},dispatch]=useStateValue();
-  const[show,setShow]=useState(false)
+  const[show,setShow]=useState(false);
+  const togglePopup=()=>{
+    setShow(!show);
+  }
   
  const addToCart=()=>
   {
@@ -36,6 +39,7 @@ function Cards({ id, title, img, pri, rat,count,fun,total,fun1 }) {
     })
     .catch( error => console.log("Error in deleting product:- "+error))
 
+    
     window.location.reload(false);
   }
   return (
@@ -44,20 +48,19 @@ function Cards({ id, title, img, pri, rat,count,fun,total,fun1 }) {
       <div className={CSSCard.title}>{title}</div>
       <strong className={CSSCard.price}>Rs. {pri}</strong>
       <div className={CSSCard.rating}>{Array(rat).fill().map((_, i) => {return <p>🌟</p>})}</div>
-
       <img className={CSSCard.image} src={img} alt="o snap" />
-
       <button className={CSSCard.addtocart} onClick={addToCart}>Add to basket</button>
       <button className={CSSCard.remove} onClick={removeProduct}>Remove Product</button>
-      <button onClick={()=>setShow(true)}>Show Modal</button>
-         <OpenCard title={title} onClose={()=>setShow(false)} show={show}>
+      {/*<button onClick={()=>setShow(true)}>Show Modal</button>*/}
+      <input type="button" value="open modal" onClick={togglePopup}/>
+         <OpenCard title={title} onClose={()=>setShow(false)} show={show} handleClose={togglePopup}>
            <p>
-            <img src={img}></img>
+            <img className={CSSCard.popimage} src={img}></img>
             <div>
-                <p>
-                 <small>Rs.</small>
-                 <strong>{pri}</strong>
-                </p>
+            <strong className={CSSCard.price}>Rs. {pri}</strong>
+      <div className={CSSCard.rating}>{Array(rat).fill().map((_, i) => {return <p>🌟</p>})}</div>
+      <button className={CSSCard.addtocart} onClick={addToCart}>Add to basket</button>
+      <button className={CSSCard.remove} onClick={removeProduct}>Remove Product</button>
             </div>
            </p>
            </OpenCard>

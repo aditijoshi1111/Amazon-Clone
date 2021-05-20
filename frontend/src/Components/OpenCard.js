@@ -8,17 +8,20 @@ import Card from "../CSSstyles/OpenCard.module.css";
     return (
         <div className={Card.modal}>
             <div className={Card.content}>
+            <span className={Card.close} onClick={props.handleClose}>X</span>
                 <div className={Card.header}>
                     <h4 className={Card.title}>{props.title}</h4>
                 </div>
                 <div className={Card.body}>
                     {props.children}
                 </div>
-                <div className={Card.footer}>
+                {/*<div className={Card.footer}>
                     <button onClick={props.onClose} className="button">Close</button>
-                </div>
+    </div>*/}
             </div>
             
-        </div>
+    </div>
+
+    
     )
 }
