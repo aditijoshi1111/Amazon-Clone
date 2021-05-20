@@ -8,7 +8,7 @@
     font-size: 16px;
     font-weight: 700;
     width: 100%;
-    position: fixed;
+    position: sticky;
     z-index: 10;
     padding-right: 10px;
     line-height: 1.1;
@@ -57,13 +57,13 @@
     border: none;
 }
 .search_icon{
-    background-color: #dd993f;
+    background-color: #f0c14b;
     height: 22px !important;
     color: black !important;
     padding: 2px;
 }
 .search_icon:hover{
-    background-color: orange;
+    background-color: #ffce51;
 }
 .list_container ul{
     display: flex;
