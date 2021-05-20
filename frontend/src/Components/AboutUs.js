@@ -57,7 +57,7 @@ function AboutUs() {
           </tr>
           <tr>
             <td>Kingshuk</td>
-            <td>181099****</td>
+            <td>1810991246</td>
           </tr>
         </table>
       </div>
