@@ -9,6 +9,7 @@ function Cards({ id, title, img, pri, rat,count,fun,total,fun1 }) {
   const[{basket},dispatch]=useStateValue();
   const[show,setShow]=useState(false);
   const togglePopup=()=>{
+    console.log("yes");
     setShow(!show);
   }
   
@@ -49,21 +50,23 @@ function Cards({ id, title, img, pri, rat,count,fun,total,fun1 }) {
       <strong className={CSSCard.price}>Rs. {pri}</strong>
       <div className={CSSCard.rating}>{Array(rat).fill().map((_, i) => {return <p>🌟</p>})}</div>
       <img className={CSSCard.image} src={img} alt="o snap" />
+
+      <button className={CSSCard.open} onClick={togglePopup}> Open </button>
       <button className={CSSCard.addtocart} onClick={addToCart}>Add to basket</button>
       <button className={CSSCard.remove} onClick={removeProduct}>Remove Product</button>
-      {/*<button onClick={()=>setShow(true)}>Show Modal</button>*/}
-      <input type="button" value="open modal" onClick={togglePopup}/>
-         <OpenCard title={title} onClose={()=>setShow(false)} show={show} handleClose={togglePopup}>
-           <p>
-            <img className={CSSCard.popimage} src={img}></img>
-            <div>
-            <strong className={CSSCard.price}>Rs. {pri}</strong>
-             <div className={CSSCard.rating}>{Array(rat).fill().map((_, i) => {return <p>🌟</p>})}</div>
-            <button className={CSSCard.addtocart} onClick={addToCart}>Add to basket</button>
-            <button className={CSSCard.popremove} onClick={removeProduct}>Remove Product</button>
-            </div>
-           </p>
-           </OpenCard>
+      
+
+      <OpenCard title={title} onClose={()=>setShow(false)} show={show} handleClose={togglePopup}>
+        <p>
+          <img className={CSSCard.popimage} src={img}></img>
+          <div className={CSSCard.bdy}>
+          <strong className={CSSCard.price}>Rs. {pri}</strong>
+          <div className={CSSCard.rating}>{Array(rat).fill().map((_, i) => {return <p>🌟</p>})}</div>
+          <button className={CSSCard.addtocart} onClick={addToCart}>Add to basket</button>
+          <button className={CSSCard.remove} onClick={removeProduct}>Remove Product</button>
+          </div>
+        </p>
+      </OpenCard>
     </div>
     
   )
