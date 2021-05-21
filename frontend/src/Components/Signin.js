@@ -31,17 +31,20 @@ export const Signin = (props) => {
     signin({ email, password })
       .then((data) => {
         if (data.error) {
-          setValues({ ...values, error: data.error, loading: false });
+          setValues({
+            ...values,
+            error: data.error,
+            loading: false,
+            email: "",
+            password: "",
+          });
         } else {
           authenticate(data, () => {
             setValues({
               ...values,
               didRedirect: true,
             });
-           
-
           });
-          //console.log(data.user.name)
           props.setName(data.user.name);
           history.push("/");
         }
@@ -59,9 +62,7 @@ export const Signin = (props) => {
     }
   };
 
-
   return (
-    
     <div className={CSSlogin.Signin}>
       {performRedirect()}
       <Link to="/">

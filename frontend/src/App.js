@@ -17,7 +17,7 @@ function App() {
   const [price, setTotal] = useState(0);
   const [name, setName] = useState("Guest");
   useEffect(() => {
-    if (isAutheticated()) setName(isAutheticated().user.name);
+    if (isAutheticated().user) setName(isAutheticated().user.name);
   }, []);
 
   
