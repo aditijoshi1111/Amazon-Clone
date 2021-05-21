@@ -1,10 +1,19 @@
 const userModel = require("../models/user");
 const jwt = require("jsonwebtoken");
+const { check, validationResult } = require("express-validator");
 async function signup(req, res) {
   try {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(422).json({
+        error: errors.array()[0].msg,
+      });
+    }
     let user = req.body;
     let newUser = await userModel.create({
       name: user.name,
+      lastname: user.lastname,
       email: user.email,
       password: user.password,
       role: user.role,
@@ -23,6 +32,13 @@ async function signup(req, res) {
 }
 async function login(req, res) {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({
+        error: errors.array()[0].msg,
+      });
+    }
+
     let { email, password } = req.body;
     //console.log(email, password);
     let loggedInUser = await userModel.find({ email: email });
@@ -40,21 +56,21 @@ async function login(req, res) {
 
         const { _id, name, email, role } = user;
         return res
-          .status(200)
+          .status(400)
           .json({ token, user: { _id, name, email, role } });
         //redirect
       } else {
-        res.status(200).json({
-          message: "Email and Password didn't Matched !!",
+        res.status(400).json({
+          error: "Email and Password didn't Matched !!",
         });
       }
     } else {
-      res.status(200).json({
-        message: "No User Found SignUp First",
+      res.status(400).json({
+        error: "No User Found SignUp First",
       });
     }
   } catch (error) {
-    res.status(200).json({
+    res.status(400).json({
       message: "Login Failed !!",
       error,
     });
