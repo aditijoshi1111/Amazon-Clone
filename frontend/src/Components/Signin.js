@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { authenticate, isAutheticated, signin } from "../apis/auth";
+import { getOrders } from "../apis/order";
 import CSSlogin from "../CSSstyles/Signin.module.css";
 import amazon from "../img/amazon.png";
 
@@ -45,6 +46,11 @@ export const Signin = (props) => {
               didRedirect: true,
             });
           });
+          getOrders().then((data) => {
+            if (data.data)
+            props.setCount(data.data.length);
+          });
+
           props.setName(data.user.name);
           history.push("/");
         }

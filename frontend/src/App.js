@@ -41,7 +41,7 @@ function App() {
           </Route>
 
           <Route path="/signIn">
-            <SignIn setName={setName} />
+            <SignIn setName={setName} setCount={setCount}/>
           </Route>
 
           <Route path="/signUp">

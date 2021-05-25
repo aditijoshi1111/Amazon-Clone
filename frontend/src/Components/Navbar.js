@@ -16,6 +16,7 @@ class Navbar extends React.Component {
   }
   async componentDidMount() {
     let alreadyAdded = await getOrders();
+    if(alreadyAdded.data)
     this.props.setCount(alreadyAdded.data.length);
   }
   componentWillReceiveProps(nextProps) {
@@ -78,6 +79,7 @@ class Navbar extends React.Component {
                     signout(() => {
                       this.props.history.push("/signIn");
                       this.props.setName("Guest");
+                      this.props.setCount(0);
                     })
                   }
                 >
