@@ -20,12 +20,12 @@ function App() {
     if (isAutheticated()) setName(isAutheticated().user.name);
   }, []);
 
+  
   // console.log(name)
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar count={counter} name={name} setName={setName} />
-
         <Switch>
           <Route exact path="/">
             <Home
