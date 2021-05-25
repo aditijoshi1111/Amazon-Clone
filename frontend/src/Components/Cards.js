@@ -16,18 +16,17 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
     console.log("yes");
     setShow(!show);
   };
-
   const addToCart = async (prodId) => {
     fun(count + 1);
     fun1(total + pri);
-    toast("Added in Cart", {
-      type: "warning",
-    });
 
     let alreadyAdded = await getOrders();
     if (alreadyAdded.data.length === 0) {
       let orderAdded = await addInCart(prodId, {
         count: 1,
+      });
+      toast("Added in Cart", {
+        type: "warning",
       });
     } else {
       let newList = alreadyAdded.data.filter((item) => {
@@ -46,11 +45,17 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
           newList.push(updatedObj.data);
           let user = await updateUserPurshase({ purchases: newList });
           //console.log(user);
+          toast("Quantity increased in Cart", {
+            type: "info",
+          });
           return;
         }
       }
       let orderAdded = await addInCart(prodId, {
         count: 1,
+      });
+      toast("Added in Cart", {
+        type: "warning",
       });
     }
 

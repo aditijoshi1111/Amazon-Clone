@@ -12,7 +12,6 @@ import MyCard from "./Components/MyCard";
 import SignUp from "./Components/Signup";
 import { isAutheticated } from "./apis/auth";
 
-
 function App() {
   const [counter, setCount] = useState(0);
   const [price, setTotal] = useState(0);
@@ -24,51 +23,56 @@ function App() {
   // console.log(name)
   return (
     <BrowserRouter>
-        <div className="App">
-          <Navbar count={counter} name={name} setName={setName} />
-          <Switch>
-            <Route exact path="/">
-              <Home
-                count={counter}
-                fun={setCount}
-                total={price}
-                fun1={setTotal}
-              />
-            </Route>
+      <div className="App">
+        <Navbar
+          count={counter}
+          name={name}
+          setName={setName}
+          setCount={setCount}
+        />
+        <Switch>
+          <Route exact path="/">
+            <Home
+              count={counter}
+              fun={setCount}
+              total={price}
+              fun1={setTotal}
+            />
+          </Route>
 
-            <Route path="/signIn">
-              <SignIn setName={setName} />
-            </Route>
+          <Route path="/signIn">
+            <SignIn setName={setName} />
+          </Route>
 
-            <Route path="/signUp">
-              <SignUp />
-            </Route>
+          <Route path="/signUp">
+            <SignUp />
+          </Route>
 
-            <Route path="/addProduct">
-              <MyCard />
-            </Route>
+          <Route path="/addProduct">
+            <MyCard />
+          </Route>
 
-            <Route path="/cart">
-              <Checkout
-                count={counter}
-                fun={setCount}
-                total={price}
-                fun1={setTotal}
-              />
-            </Route>
+          <Route path="/cart">
+            <Checkout
+              count={counter}
+              fun={setCount}
+              total={price}
+              fun1={setTotal}
+            />
+          </Route>
 
-            <Route path="/aboutUs">
-              <AboutUs />
-            </Route>
+          <Route path="/aboutUs">
+            <AboutUs />
+          </Route>
 
-            <Route path="/contactUs">
-              <ContactUs />
-            </Route>
-          </Switch>
+          <Route path="/contactUs">
+            <ContactUs />
+          </Route>
+        </Switch>
 
-          <Footer />
-        </div>
-      </BrowserRouter>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

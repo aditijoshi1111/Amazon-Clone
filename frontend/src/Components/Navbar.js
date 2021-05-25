@@ -5,6 +5,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import CSSNav from "../CSSstyles/Navbar.module.css";
 import logo from "../img/logo.png";
 import { isAutheticated, signout } from "../apis/auth";
+import { getOrders } from "../apis/order";
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -12,6 +13,10 @@ class Navbar extends React.Component {
     this.state = {
       name: this.props.name,
     };
+  }
+  async componentDidMount() {
+    let alreadyAdded = await getOrders();
+    this.props.setCount(alreadyAdded.data.length);
   }
   componentWillReceiveProps(nextProps) {
     //console.log(nextProps.name);
