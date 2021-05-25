@@ -6,11 +6,12 @@ import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
-import AboutUs from './Components/AboutUs'
+import AboutUs from "./Components/AboutUs";
 import ContactUs from "./Components/ContactUs";
 import MyCard from "./Components/MyCard";
 import SignUp from "./Components/Signup";
 import { isAutheticated } from "./apis/auth";
+
 
 function App() {
   const [counter, setCount] = useState(0);
@@ -20,57 +21,54 @@ function App() {
     if (isAutheticated().user) setName(isAutheticated().user.name);
   }, []);
 
-  
   // console.log(name)
   return (
     <BrowserRouter>
-      <div className="App">
-        <Navbar count={counter} name={name} setName={setName} />
-        <Switch>
+        <div className="App">
+          <Navbar count={counter} name={name} setName={setName} />
+          <Switch>
+            <Route exact path="/">
+              <Home
+                count={counter}
+                fun={setCount}
+                total={price}
+                fun1={setTotal}
+              />
+            </Route>
 
-          <Route exact path="/">
-            <Home
-              count={counter}
-              fun={setCount}
-              total={price}
-              fun1={setTotal}
-            />
-          </Route>
+            <Route path="/signIn">
+              <SignIn setName={setName} />
+            </Route>
 
-          <Route path="/signIn">
-            <SignIn setName={setName} />
-          </Route>
+            <Route path="/signUp">
+              <SignUp />
+            </Route>
 
-          <Route path="/signUp">
-            <SignUp />
-          </Route>
-          
-          <Route path="/addProduct">
-            <MyCard />
-          </Route>
+            <Route path="/addProduct">
+              <MyCard />
+            </Route>
 
-          <Route path="/cart">
-            <Checkout
-              count={counter}
-              fun={setCount}
-              total={price}
-              fun1={setTotal}
-            />
-          </Route>
-          
-          <Route path="/aboutUs">
-            <AboutUs />
-          </Route>
-          
-          <Route path="/contactUs">
-            <ContactUs />
-          </Route>
+            <Route path="/cart">
+              <Checkout
+                count={counter}
+                fun={setCount}
+                total={price}
+                fun1={setTotal}
+              />
+            </Route>
 
-        </Switch>
+            <Route path="/aboutUs">
+              <AboutUs />
+            </Route>
 
-        <Footer/>
-      </div>
-    </BrowserRouter>
+            <Route path="/contactUs">
+              <ContactUs />
+            </Route>
+          </Switch>
+
+          <Footer />
+        </div>
+      </BrowserRouter>
   );
 }
 
