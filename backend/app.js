@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 //My Routes
 const userRoutes = require("./routes/user");
 const productRoutes = require("./routes/product");
+const emailRoutes = require("./routes/email");
 //DB connection
 
 mongoose
@@ -24,14 +25,14 @@ mongoose
   });
 //Middlewares
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}))
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
 // my middlewares
 app.use("/api", userRoutes);
-app.use("/api",productRoutes);
-
+app.use("/api", productRoutes);
+app.use("/api", emailRoutes);
 // app.get("/", function(req,res){
 //     res.sendFile(path.join(__dirname,"../frontend/src/App.js"));
 // })

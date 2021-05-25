@@ -6,7 +6,7 @@ import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
-import AboutUs from './Components/AboutUs'
+import AboutUs from "./Components/AboutUs";
 import ContactUs from "./Components/ContactUs";
 import MyCard from "./Components/MyCard";
 import SignUp from "./Components/Signup";
@@ -27,7 +27,6 @@ function App() {
       <div className="App">
         <Navbar count={counter} name={name} setName={setName} />
         <Switch>
-
           <Route exact path="/">
             <Home
               count={counter}
@@ -44,7 +43,7 @@ function App() {
           <Route path="/signUp">
             <SignUp />
           </Route>
-          
+
           <Route path="/addProduct">
             <MyCard />
           </Route>
@@ -57,18 +56,17 @@ function App() {
               fun1={setTotal}
             />
           </Route>
-          
+
           <Route path="/aboutUs">
             <AboutUs />
           </Route>
-          
+
           <Route path="/contactUs">
             <ContactUs />
           </Route>
-
         </Switch>
 
-        <Footer/>
+        <Footer />
       </div>
     </BrowserRouter>
   );
