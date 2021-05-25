@@ -1,6 +1,5 @@
-let API = "http://localhost:8000/api/";
 export const signup = (user) => {
-  return fetch(`${API}/signup`, {
+  return fetch(`/signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -15,7 +14,7 @@ export const signup = (user) => {
 };
 
 export const signin = (user) => {
-  return fetch(`${API}/signin`, {
+  return fetch(`/signin`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -41,7 +40,7 @@ export const signout = (next) => {
     localStorage.removeItem("jwt");
     next();
 
-    return fetch(`${API}/signout`, {
+    return fetch(`/signout`, {
       method: "GET",
     })
       .then((response) => console.log("signout success"))
@@ -58,4 +57,20 @@ export const isAutheticated = () => {
   } else {
     return false;
   }
+};
+export const updateUserPurshase = (obj) => {
+  let { user } = isAutheticated();
+
+  return fetch(`/user/${user._id}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(obj),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
 };

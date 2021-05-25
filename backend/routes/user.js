@@ -39,7 +39,7 @@ router.get("/signout", logOut);
 
 //users
 router.get("/user/:userId", isAuthenticated, getUserById);
-router.get("/users", isAuthenticated, isAdmin, getAllUsers);
+router.get("/users", isAuthenticated, getAllUsers);
 router.put("/user/:userId", isAuthenticated, updateUserById);
 router.delete("/user/:userId", isAuthenticated, deleteUserById);
 

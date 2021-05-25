@@ -68,12 +68,14 @@ class Navbar extends React.Component {
                   </div>
                 </Link>
               ) : (
-                <Link onClick={() =>
-                  signout(() => {
-                    this.props.history.push("/signIn");
-                    this.props.setName("Guest");
-                  })
-                }>
+                <Link
+                  onClick={() =>
+                    signout(() => {
+                      this.props.history.push("/signIn");
+                      this.props.setName("Guest");
+                    })
+                  }
+                >
                   <div>
                     <span>Hello {this.state.name}</span>
                     <br />
@@ -91,16 +93,25 @@ class Navbar extends React.Component {
                 </div>
               </Link>
             </li>
-
-            <li>
-              <Link to="/addProduct">
+            {isAutheticated() ? (
+              <li>
+                <Link to="/addProduct">
+                  <div>
+                    <span>Add</span>
+                    <br />
+                    Product
+                  </div>
+                </Link>
+              </li>
+            ) : (
+              <Link to="/signUp">
                 <div>
-                  <span>Add</span>
+                  <span>Create Account</span>
                   <br />
-                  Product
+                  Sign Up
                 </div>
               </Link>
-            </li>
+            )}
 
             <li>
               <Link to="/cart">

@@ -6,6 +6,8 @@ import { useStateValue } from "./StateProvider";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { addInCart, getOrders, getOrderById, updateOrder } from "../apis/order";
+import { updateUserPurshase } from "../apis/auth";
 
 function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
   const [{ basket }, dispatch] = useStateValue();
@@ -15,16 +17,42 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
     setShow(!show);
   };
 
-  const addToCart = async () => {
+  const addToCart = async (prodId) => {
     fun(count + 1);
     fun1(total + pri);
     toast("Added in Cart", {
       type: "warning",
     });
-    let data = await addToCart(id, {
-      count: 1,
-    });
-    console.log(data);
+
+    let alreadyAdded = await getOrders();
+    if (alreadyAdded.data.length === 0) {
+      let orderAdded = await addInCart(prodId, {
+        count: 1,
+      });
+    } else {
+      let newList = alreadyAdded.data.filter((item) => {
+        return item.product !== prodId;
+      });
+      // console.log(newList);
+      for (let i = 0; i < alreadyAdded.data.length; i++) {
+        let obj = alreadyAdded.data[i];
+        let order = await getOrderById(obj._id);
+        if (obj.product === prodId) {
+          let count = order.data.count;
+          let updatedObj = await updateOrder(obj._id, {
+            count: count + 1,
+          });
+          //console.log(updatedObj.data);
+          newList.push(updatedObj.data);
+          let user = await updateUserPurshase({ purchases: newList });
+          //console.log(user);
+          return;
+        }
+      }
+      let orderAdded = await addInCart(prodId, {
+        count: 1,
+      });
+    }
 
     dispatch({
       type: "Add_to_basket",
