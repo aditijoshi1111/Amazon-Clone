@@ -16,8 +16,7 @@ class Navbar extends React.Component {
   }
   async componentDidMount() {
     let alreadyAdded = await getOrders();
-    if(alreadyAdded.data)
-    this.props.setCount(alreadyAdded.data.length);
+    if (alreadyAdded.data) this.props.setCount(alreadyAdded.data.length);
   }
   componentWillReceiveProps(nextProps) {
     //console.log(nextProps.name);
@@ -80,6 +79,10 @@ class Navbar extends React.Component {
                       this.props.history.push("/signIn");
                       this.props.setName("Guest");
                       this.props.setCount(0);
+                      let { dispatch } = this.props;
+                      dispatch({
+                        type: "Clear_Basket",
+                      });
                     })
                   }
                 >

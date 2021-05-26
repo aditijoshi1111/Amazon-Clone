@@ -30,10 +30,10 @@ function App() {
   }
   useEffect(() => {
     if (isAutheticated().user) {
+      console.log("User Auth")
       setName(isAutheticated().user.name);
       const getProd = async (id) => {
         const { data } = await getProdById(id);
-        console.log("df");
         let base64Flag = "data:image/jpeg;base64,";
         let imageStr = arrayBufferToBase64(data.img.data.data);
         let image = base64Flag + imageStr;
@@ -52,7 +52,6 @@ function App() {
         const { data } = await getOrders();
         for (let i = 0; i < data.length; i++) {
           let obj = data[i];
-          console.log(obj);
           let id = obj.product;
           getProd(id);
         }
@@ -60,7 +59,7 @@ function App() {
       orderGet();
     }
     // console.log(ordersInCart);
-  }, []);
+  }, [name]);
 
   // console.log(name)
   return (
@@ -71,6 +70,7 @@ function App() {
           name={name}
           setName={setName}
           setCount={setCount}
+          dispatch={dispatch}
         />
         <Switch>
           <Route exact path="/">
