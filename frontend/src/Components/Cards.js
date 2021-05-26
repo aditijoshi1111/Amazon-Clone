@@ -7,7 +7,7 @@ import { useStateValue } from "./StateProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addInCart, getOrders, getOrderById, updateOrder } from "../apis/order";
-import { updateUserPurshase } from "../apis/auth";
+import { isAutheticated, updateUserPurshase } from "../apis/auth";
 
 function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
   const [{ basket }, dispatch] = useStateValue();
@@ -17,8 +17,7 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
     setShow(!show);
   };
   const addToCart = async (prodId) => {
-    fun(count + 1);
-    fun1(total + pri);
+    // fun1(total + pri);
 
     let alreadyAdded = await getOrders();
     if (alreadyAdded.data.length === 0) {
@@ -28,6 +27,7 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
       toast("Added in Cart", {
         type: "warning",
       });
+      fun(count + 1);
     } else {
       let newList = alreadyAdded.data.filter((item) => {
         return item.product !== prodId;
@@ -49,14 +49,15 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
             type: "info",
           });
           dispatch({
-            type: "Add_to_basket",
-            item: {
+            type: "Update",
+            id: updatedObj.data.product,
+            order: {
               id: id,
               title: title,
               img: img,
               pri: pri,
               rat: rat,
-              count: updateOrder.data.count,
+              count: count + 1,
             },
           });
           return;
@@ -65,6 +66,7 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
       let orderAdded = await addInCart(prodId, {
         count: 1,
       });
+      fun(count + 1);
       toast("Added in Cart", {
         type: "warning",
       });
@@ -79,7 +81,6 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
         pri: pri,
         rat: rat,
         count: 1,
-        
       },
     });
   };
@@ -111,12 +112,21 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
         {" "}
         Open{" "}
       </button>
-      <button className={CSSCard.addtocart} onClick={() => addToCart(id)}>
-        Add to basket
-      </button>
-      <button className={CSSCard.remove} onClick={removeProduct}>
-        Remove Product
-      </button>
+
+      {isAutheticated() ? (
+        <button className={CSSCard.addtocart} onClick={() => addToCart(id)}>
+          Add to basket
+        </button>
+      ) : (
+        ""
+      )}
+      {isAutheticated() ? (
+        <button className={CSSCard.remove} onClick={removeProduct}>
+          Remove Product
+        </button>
+      ) : (
+        ""
+      )}
 
       <OpenCard
         title={title}
@@ -135,12 +145,20 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
                   return <p key={i}>🌟</p>;
                 })}
             </div>
-            <button className={CSSCard.addtocart} onClick={addToCart}>
-              Add to basket
-            </button>
-            <button className={CSSCard.remove} onClick={removeProduct}>
-              Remove Product
-            </button>
+            {isAutheticated() ? (
+              <button className={CSSCard.addtocart} onClick={addToCart}>
+                Add to basket
+              </button>
+            ) : (
+              ""
+            )}
+            {isAutheticated() ? (
+              <button className={CSSCard.remove} onClick={removeProduct}>
+                Remove Product
+              </button>
+            ) : (
+              ""
+            )}
           </div>
         </p>
       </OpenCard>

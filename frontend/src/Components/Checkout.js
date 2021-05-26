@@ -12,7 +12,7 @@ function Checkout({ count, fun, total, fun1 }) {
     for (let i = 0; i < basket.length; i++)
       sum += parseInt(basket[i].pri) * basket[i].count;
     fun1(sum + "");
-  }, []);
+  }, [basket]);
   return (
     <div className={CheckCSS.checkout}>
       <div className={CheckCSS.checkout__left}>
