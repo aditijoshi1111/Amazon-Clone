@@ -53,19 +53,18 @@ async function login(req, res) {
         });
 
         res.cookie("jwt", token, { httpOnly: true });
-
         const { _id, name, email, role } = user;
         return res
-          .status(400)
+          .status(200)
           .json({ token, user: { _id, name, email, role } });
         //redirect
       } else {
-        res.status(400).json({
+        return res.status(400).json({
           error: "Email and Password didn't Matched !!",
         });
       }
     } else {
-      res.status(400).json({
+      return res.status(400).json({
         error: "No User Found SignUp First",
       });
     }
@@ -95,13 +94,12 @@ async function logOut(req, res) {
 async function isAuthenticated(req, res, next) {
   try {
     const token = req.cookies.jwt;
-    //console.log("Inside function");
     const payload = jwt.verify(token, "dsgisgsfsgnflnf");
     //console.log(payload);
     if (payload) {
       // logged in
       let user = await userModel.findById(payload.id);
-      req.id = user.id;
+      req.id = payload.id;
       next();
     } else {
       res.status(501).json({
@@ -120,7 +118,6 @@ async function isAdmin(req, res, next) {
   try {
     let id = req.id;
     let user = await userModel.findById(id);
-    console.log(user);
     if (user.role == "admin") {
       next();
     } else {

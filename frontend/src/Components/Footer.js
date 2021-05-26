@@ -44,7 +44,7 @@ export default function Footer() {
 
                 </div>
                 <div className={CSSFooter.foot}>
-                    <p className="text-xs text-center">
+                    <p className="text-xs text-center"style={{margin:"3px"}}>
                         &copy;{new Date().getFullYear()}  City Guide App - All Rights |
                     </p>
                 </div>

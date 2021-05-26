@@ -6,28 +6,82 @@ import SignIn from "./Components/Signin";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
-import AboutUs from './Components/AboutUs'
+import AboutUs from "./Components/AboutUs";
 import ContactUs from "./Components/ContactUs";
 import MyCard from "./Components/MyCard";
 import SignUp from "./Components/Signup";
 import { isAutheticated } from "./apis/auth";
+import { getOrders } from "./apis/order";
+import { useStateValue } from "./Components/StateProvider";
+import { getProdById } from "./apis/product";
 
 function App() {
   const [counter, setCount] = useState(0);
   const [price, setTotal] = useState(0);
+  const [check, setCheck] = useState(false);
   const [name, setName] = useState("Guest");
+  const [{ basket }, dispatch] = useStateValue();
+  function arrayBufferToBase64(buffer) {
+    var binary = "";
+    var bytes = [].slice.call(new Uint8Array(buffer));
+
+    bytes.forEach((b) => (binary += String.fromCharCode(b)));
+
+    return window.btoa(binary);
+  }
+
   useEffect(() => {
     if (isAutheticated().user) setName(isAutheticated().user.name);
-  }, []);
+   // console.log("length", basket.length, check);
+    console.log(name);
+    if (isAutheticated() && check == false) {
+      setCheck(true);
+      const getProd = async (id, count) => {
+        const { data } = await getProdById(id);
+        let base64Flag = "data:image/jpeg;base64,";
+        let imageStr = arrayBufferToBase64(data.img.data.data);
+        let image = base64Flag + imageStr;
+        dispatch({
+          type: "Add_to_basket",
+          item: {
+            id: id,
+            title: data.Product_name,
+            img: image,
+            pri: data.Price,
+            count: count,
+            rat: 5,
+          },
+        });
+      };
+      let orderGet = async () => {
+        //console.log("ADDING");
+        const { data } = await getOrders();
+        if (data.length) {
+          for (let i = 0; i < data.length; i++) {
+            let obj = data[i];
+            let id = obj.product;
+            getProd(id, obj.count);
+          }
+        }
+      };
+      orderGet();
+    }
+    // console.log(ordersInCart);
+  }, [name]);
 
-  
   // console.log(name)
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar count={counter} name={name} setName={setName} />
+        <Navbar
+          count={counter}
+          name={name}
+          setName={setName}
+          setCount={setCount}
+          dispatch={dispatch}
+          setCheck={setCheck}
+        />
         <Switch>
-
           <Route exact path="/">
             <Home
               count={counter}
@@ -38,13 +92,13 @@ function App() {
           </Route>
 
           <Route path="/signIn">
-            <SignIn setName={setName} />
+            <SignIn setName={setName} setCount={setCount} />
           </Route>
 
           <Route path="/signUp">
             <SignUp />
           </Route>
-          
+
           <Route path="/addProduct">
             <MyCard />
           </Route>
@@ -57,18 +111,17 @@ function App() {
               fun1={setTotal}
             />
           </Route>
-          
+
           <Route path="/aboutUs">
             <AboutUs />
           </Route>
-          
+
           <Route path="/contactUs">
             <ContactUs />
           </Route>
-
         </Switch>
 
-        <Footer/>
+        <Footer />
       </div>
     </BrowserRouter>
   );
