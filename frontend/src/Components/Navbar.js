@@ -122,15 +122,25 @@ class Navbar extends React.Component {
                 </div>
               </Link>
             )}
-
-            <li>
-              <Link to="/cart">
-                <div>
-                  <ShoppingCartIcon />
-                  {this.props.count}
-                </div>
-              </Link>
-            </li>
+            {isAutheticated() ? (
+              <li>
+                <Link to="/cart">
+                  <div>
+                    <ShoppingCartIcon />
+                    {this.props.count}
+                  </div>
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/signIn">
+                  <div>
+                    <ShoppingCartIcon />
+                    {this.props.count}
+                  </div>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
