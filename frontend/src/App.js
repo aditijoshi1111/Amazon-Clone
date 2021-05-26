@@ -11,13 +11,55 @@ import ContactUs from "./Components/ContactUs";
 import MyCard from "./Components/MyCard";
 import SignUp from "./Components/Signup";
 import { isAutheticated } from "./apis/auth";
+import { getOrders } from "./apis/order";
+import { useStateValue } from "./Components/StateProvider";
+import { getProdById } from "./apis/product";
 
 function App() {
   const [counter, setCount] = useState(0);
   const [price, setTotal] = useState(0);
   const [name, setName] = useState("Guest");
+  const [{ basket }, dispatch] = useStateValue();
+  function arrayBufferToBase64(buffer) {
+    var binary = "";
+    var bytes = [].slice.call(new Uint8Array(buffer));
+
+    bytes.forEach((b) => (binary += String.fromCharCode(b)));
+
+    return window.btoa(binary);
+  }
   useEffect(() => {
-    if (isAutheticated().user) setName(isAutheticated().user.name);
+    if (isAutheticated().user) {
+      setName(isAutheticated().user.name);
+      const getProd = async (id) => {
+        const { data } = await getProdById(id);
+        console.log("df");
+        let base64Flag = "data:image/jpeg;base64,";
+        let imageStr = arrayBufferToBase64(data.img.data.data);
+        let image = base64Flag + imageStr;
+        dispatch({
+          type: "Add_to_basket",
+          item: {
+            id: id,
+            title: data.Product_name,
+            img: image,
+            pri: data.Price,
+            rat: 5,
+          },
+        });
+      };
+      let orderGet = async () => {
+        const { data } = await getOrders();
+        for (let i = 0; i < data.length; i++) {
+          let obj = data[i];
+          console.log(obj);
+          let id = obj.product;
+          getProd(id);
+        }
+      };
+      orderGet();
+    }
+    // console.log(ordersInCart);
   }, []);
 
   // console.log(name)
@@ -41,7 +83,7 @@ function App() {
           </Route>
 
           <Route path="/signIn">
-            <SignIn setName={setName} setCount={setCount}/>
+            <SignIn setName={setName} setCount={setCount} />
           </Route>
 
           <Route path="/signUp">

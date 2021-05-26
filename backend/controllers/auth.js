@@ -94,8 +94,6 @@ async function logOut(req, res) {
 async function isAuthenticated(req, res, next) {
   try {
     const token = req.cookies.jwt;
-    console.log(token);
-    console.log("authenticated", req.cookies.jwt);
     const payload = jwt.verify(token, "dsgisgsfsgnflnf");
     //console.log(payload);
     if (payload) {
@@ -120,7 +118,6 @@ async function isAdmin(req, res, next) {
   try {
     let id = req.id;
     let user = await userModel.findById(id);
-    console.log(user);
     if (user.role == "admin") {
       next();
     } else {
