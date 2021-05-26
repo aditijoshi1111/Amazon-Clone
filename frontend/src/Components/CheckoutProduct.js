@@ -13,6 +13,7 @@ export default function CheckoutProduct({
   fun,
   total,
   fun1,
+  quan
 }) {
   const [{ basket }, dispatch] = useStateValue();
   const removeFromBasket = () => {
@@ -32,6 +33,7 @@ export default function CheckoutProduct({
           <small>Rs.</small>
           <strong>{pri}</strong>
         </p>
+        <strong>Quantity {quan}</strong>
         <div className={CSSCard.rating}>
           {Array(rat)
             .fill()

@@ -48,6 +48,17 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
           toast("Quantity increased in Cart", {
             type: "info",
           });
+          dispatch({
+            type: "Add_to_basket",
+            item: {
+              id: id,
+              title: title,
+              img: img,
+              pri: pri,
+              rat: rat,
+              count: updateOrder.data.count,
+            },
+          });
           return;
         }
       }
@@ -67,6 +78,8 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
         img: img,
         pri: pri,
         rat: rat,
+        count: 1,
+        
       },
     });
   };

@@ -18,6 +18,7 @@ import { getProdById } from "./apis/product";
 function App() {
   const [counter, setCount] = useState(0);
   const [price, setTotal] = useState(0);
+  const [check, setCheck] = useState(false);
   const [name, setName] = useState("Guest");
   const [{ basket }, dispatch] = useStateValue();
   function arrayBufferToBase64(buffer) {
@@ -28,11 +29,14 @@ function App() {
 
     return window.btoa(binary);
   }
+
   useEffect(() => {
-    if (isAutheticated().user) {
-      console.log("User Auth")
-      setName(isAutheticated().user.name);
-      const getProd = async (id) => {
+    if (isAutheticated().user) setName(isAutheticated().user.name);
+   // console.log("length", basket.length, check);
+    console.log(name);
+    if (isAutheticated() && check == false) {
+      setCheck(true);
+      const getProd = async (id, count) => {
         const { data } = await getProdById(id);
         let base64Flag = "data:image/jpeg;base64,";
         let imageStr = arrayBufferToBase64(data.img.data.data);
@@ -44,16 +48,20 @@ function App() {
             title: data.Product_name,
             img: image,
             pri: data.Price,
+            count: count,
             rat: 5,
           },
         });
       };
       let orderGet = async () => {
+        //console.log("ADDING");
         const { data } = await getOrders();
-        for (let i = 0; i < data.length; i++) {
-          let obj = data[i];
-          let id = obj.product;
-          getProd(id);
+        if (data.length) {
+          for (let i = 0; i < data.length; i++) {
+            let obj = data[i];
+            let id = obj.product;
+            getProd(id, obj.count);
+          }
         }
       };
       orderGet();
@@ -71,6 +79,7 @@ function App() {
           setName={setName}
           setCount={setCount}
           dispatch={dispatch}
+          setCheck={setCheck}
         />
         <Switch>
           <Route exact path="/">

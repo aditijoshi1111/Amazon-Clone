@@ -79,6 +79,7 @@ class Navbar extends React.Component {
                       this.props.history.push("/signIn");
                       this.props.setName("Guest");
                       this.props.setCount(0);
+                      this.props.setCheck(false);
                       let { dispatch } = this.props;
                       dispatch({
                         type: "Clear_Basket",

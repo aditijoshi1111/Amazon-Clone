@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CheckCSS from "../CSSstyles/Checkout.module.css";
 import amazonAd from "../img/amazonAd3.jpg";
 import Subtotal from "./Subtotal";
@@ -6,6 +6,13 @@ import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 function Checkout({ count, fun, total, fun1 }) {
   const [{ basket }, dispatch] = useStateValue();
+  useEffect(() => {
+    let sum = 0;
+    console.log(basket)
+    for (let i = 0; i < basket.length; i++)
+      sum += parseInt(basket[i].pri) * basket[i].count;
+    fun1(sum + "");
+  }, []);
   return (
     <div className={CheckCSS.checkout}>
       <div className={CheckCSS.checkout__left}>
@@ -29,6 +36,7 @@ function Checkout({ count, fun, total, fun1 }) {
                 fun={fun}
                 total={total}
                 fun1={fun1}
+                quan={item.count}
               />
             );
           })}

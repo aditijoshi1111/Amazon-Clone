@@ -25,6 +25,7 @@ const reducer = (state, action) => {
         basket: [],
       };
     default:
+      console.log(state)
       return state;
   }
 };
