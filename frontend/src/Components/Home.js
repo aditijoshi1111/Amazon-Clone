@@ -1,7 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import CSSHome from "../CSSstyles/Home.module.css";
 import banner from "../img/banner.jpg";
+import amazonAd from "../img/amazonAd.jpg";
+import amazonAd1 from "../img/amazonAd1.jpg";
+import amazonAd2 from "../img/amazonAd2.jpg";
+import amazonAd3 from "../img/amazonAd3.jpg";
 import Cards from "./Cards";
+//import Carousel from 'react-bootstrap/Carousel';
+//import Slider from "react-slick";
 import ReactLoading from "react-loading";
 
 function Home({ count, fun, total, fun1 }) {
@@ -19,7 +25,7 @@ function Home({ count, fun, total, fun1 }) {
         for (let i = 0; i < data.length; i++) {
           var base64Flag = "data:image/jpeg;base64,";
           var imageStr = arrayBufferToBase64(data[i].img.data.data);
-
+           
           data[i].img = base64Flag + imageStr;
         }
         setproduct_List(data);
@@ -36,7 +42,7 @@ function Home({ count, fun, total, fun1 }) {
 
     return window.btoa(binary);
   }
-
+  
   return loading ? (
     <div
       style={{
@@ -81,5 +87,4 @@ function Home({ count, fun, total, fun1 }) {
     </div>
   );
 }
-
 export default Home;

@@ -12,6 +12,7 @@ class Navbar extends React.Component {
     super(props);
     this.state = {
       name: this.props.name,
+      keyword:"",
     };
   }
   async componentDidMount() {
@@ -29,7 +30,27 @@ class Navbar extends React.Component {
   //     this.setState({ name: this.props.name });
 
   // }
-
+/*getValue = (e) =>{
+  this.setState({
+    keyword:e.target.value
+  })
+}
+handleSearch =()=>{
+  fetch("http://localhost:8000/api/getAllProducts", {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+    console.log(data);
+  data.filter(item =>
+    {
+      return item.Product_Name.isMatch(this.keyword);
+    });
+    <searchKey arr={data}/>
+     
+    })
+    .catch((err) => console.log(err));
+}*/
   render() {
     return (
       <div className={CSSNav.container}>
@@ -53,7 +74,7 @@ class Navbar extends React.Component {
 
           <form className={CSSNav.search}>
             <input type="text" />
-            <SearchIcon className={CSSNav.search_icon} />
+            <SearchIcon className={CSSNav.search_icon}/>
           </form>
 
           <ul>
