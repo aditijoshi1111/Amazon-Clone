@@ -92,6 +92,7 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
       toast("Added in Cart", {
         type: "warning",
       });
+
       dispatch({
         type: "Add_to_basket",
         item: {
@@ -231,7 +232,10 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
               ""
             )}
             {isAutheticated() ? (
-              <button className={CSSCard.remove} onClick={removeProduct}>
+              <button
+                className={CSSCard.remove}
+                onClick={() => removeFromCart(id)}
+              >
                 Remove Product
               </button>
             ) : (
