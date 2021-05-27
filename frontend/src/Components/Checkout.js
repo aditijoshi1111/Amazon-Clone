@@ -1,19 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CheckCSS from "../CSSstyles/Checkout.module.css";
 import amazonAd from "../img/amazonAd3.jpg";
 import Subtotal from "./Subtotal";
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
+import ReactLoading from "react-loading";
+let color = "#f0c14b";
 function Checkout({ count, fun, total, fun1 }) {
   const [{ basket }, dispatch] = useStateValue();
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     let sum = 0;
-    console.log(basket)
+    console.log(basket);
     for (let i = 0; i < basket.length; i++)
       sum += parseInt(basket[i].pri) * basket[i].count;
+    setLoading(false);
+
     fun1(sum + "");
   }, [basket]);
-  return (
+  return loading ? (
+    <div
+      style={{
+        width: "100%",
+        height: "465px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <ReactLoading
+        type={"bars"}
+        color={color}
+        height={"465px"}
+        width={"423px"}
+      />
+      <div style={{ color: color, fontSize: "50px" }}>Orders Updating ...</div>
+    </div>
+  ) : (
     <div className={CheckCSS.checkout}>
       <div className={CheckCSS.checkout__left}>
         <img
