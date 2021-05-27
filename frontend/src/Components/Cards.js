@@ -153,6 +153,10 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
       toast("Removed item in Cart", {
         type: "error",
       });
+    } else {
+      toast("First add item", {
+        type: "error",
+      });
     }
   };
 

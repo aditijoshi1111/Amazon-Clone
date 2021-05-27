@@ -26,7 +26,7 @@ function Home({ count, fun, total, fun1 }) {
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [product_List]);
 
   function arrayBufferToBase64(buffer) {
     var binary = "";
