@@ -33,7 +33,7 @@ function App() {
   useEffect(() => {
     if (isAutheticated().user) setName(isAutheticated().user.name);
     // console.log("length", basket.length, check);
-    //console.log(name);
+    console.log(basket);
     if (isAutheticated() && check == false) {
       setCheck(true);
       const getProd = async (id, count, oId) => {
@@ -56,15 +56,16 @@ function App() {
       };
       let orderGet = async () => {
         //console.log("ADDING");
-        const data = await getOrders();
+        const { data } = await getOrders();
         console.log(data);
         //console.log(data)
         if (data.length) {
           for (let i = 0; i < data.length; i++) {
             let obj = data[i];
+            console.log(obj);
             let id = obj.product;
             let oId = obj._id;
-            console.log(oId)
+            console.log(oId);
             getProd(id, obj.count, oId);
           }
         }

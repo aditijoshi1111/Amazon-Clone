@@ -15,7 +15,7 @@ function Home({ count, fun, total, fun1 }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         for (let i = 0; i < data.length; i++) {
           var base64Flag = "data:image/jpeg;base64,";
           var imageStr = arrayBufferToBase64(data[i].img.data.data);
@@ -26,7 +26,7 @@ function Home({ count, fun, total, fun1 }) {
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, [product_List]);
+  }, []);
 
   function arrayBufferToBase64(buffer) {
     var binary = "";
