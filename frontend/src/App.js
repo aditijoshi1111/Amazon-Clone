@@ -36,6 +36,7 @@ function App() {
     console.log(basket);
     if (isAutheticated() && check == false) {
       setCheck(true);
+      console.log("ADDING")
       const getProd = async (id, count, oId) => {
         const { data } = await getProdById(id);
         let base64Flag = "data:image/jpeg;base64,";
@@ -65,7 +66,7 @@ function App() {
             console.log(obj);
             let id = obj.product;
             let oId = obj._id;
-            console.log(oId);
+            //console.log(oId);
             getProd(id, obj.count, oId);
           }
         }
