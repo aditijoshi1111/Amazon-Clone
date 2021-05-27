@@ -49,8 +49,9 @@ function Checkout({ count, fun, total, fun1 }) {
           {basket.map((item) => {
             return (
               <CheckoutProduct
-                key={item._id}
-                id={item._id}
+                key={item.id}
+                id={item.id}
+                oId={item.oId}
                 title={item.title}
                 pri={item.pri}
                 img={item.img}
