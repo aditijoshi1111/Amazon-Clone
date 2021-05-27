@@ -83,7 +83,7 @@ async function updateOrder(req, res) {
 async function ReduceOrder(req, res) {
   try {
     let order = await orderModel.findById(req.params.orderId);
-    if (order.count == 0) {
+    if (order.count == 1) {
       order = await orderModel.findByIdAndDelete(req.params.orderId);
       res.status(201).json({
         message: "order deleted successfully",

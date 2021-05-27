@@ -32,11 +32,11 @@ function App() {
 
   useEffect(() => {
     if (isAutheticated().user) setName(isAutheticated().user.name);
-   // console.log("length", basket.length, check);
-    console.log(name);
+    // console.log("length", basket.length, check);
+    //console.log(name);
     if (isAutheticated() && check == false) {
       setCheck(true);
-      const getProd = async (id, count) => {
+      const getProd = async (id, count, oId) => {
         const { data } = await getProdById(id);
         let base64Flag = "data:image/jpeg;base64,";
         let imageStr = arrayBufferToBase64(data.img.data.data);
@@ -45,6 +45,7 @@ function App() {
           type: "Add_to_basket",
           item: {
             id: id,
+            oId: oId,
             title: data.Product_name,
             img: image,
             pri: data.Price,
@@ -55,12 +56,16 @@ function App() {
       };
       let orderGet = async () => {
         //console.log("ADDING");
-        const { data } = await getOrders();
+        const data = await getOrders();
+        console.log(data);
+        //console.log(data)
         if (data.length) {
           for (let i = 0; i < data.length; i++) {
             let obj = data[i];
             let id = obj.product;
-            getProd(id, obj.count);
+            let oId = obj._id;
+            console.log(oId)
+            getProd(id, obj.count, oId);
           }
         }
       };
