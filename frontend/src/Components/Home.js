@@ -10,7 +10,7 @@ function Home({ count, fun, total, fun1 }) {
   let color = "#f0c14b";
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/getAllProducts", {
+    fetch("/getAllProducts", {
       method: "GET",
     })
       .then((response) => response.json())
