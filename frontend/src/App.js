@@ -14,13 +14,14 @@ import { isAutheticated } from "./apis/auth";
 import { getOrders } from "./apis/order";
 import { useStateValue } from "./Components/StateProvider";
 import { getProdById } from "./apis/product";
-
+import { useCookies } from "react-cookie";
 function App() {
   const [counter, setCount] = useState(0);
   const [price, setTotal] = useState(0);
   const [check, setCheck] = useState(false);
   const [name, setName] = useState("Guest");
   const [{ basket }, dispatch] = useStateValue();
+  const [cookies, setCookie] = useCookies(['name']);
   function arrayBufferToBase64(buffer) {
     var binary = "";
     var bytes = [].slice.call(new Uint8Array(buffer));
@@ -31,12 +32,16 @@ function App() {
   }
 
   useEffect(() => {
-    if (isAutheticated().user) setName(isAutheticated().user.name);
+    if (isAutheticated().user) {
+      setName(isAutheticated().user.name);
+      setCookie('jwt',isAutheticated().token , { path: '/' });
+    }
+
     // console.log("length", basket.length, check);
     console.log(basket);
     if (isAutheticated() && check == false) {
       setCheck(true);
-      console.log("ADDING")
+      //console.log("ADDING")
       const getProd = async (id, count, oId) => {
         const { data } = await getProdById(id);
         let base64Flag = "data:image/jpeg;base64,";
@@ -56,6 +61,7 @@ function App() {
         });
       };
       let orderGet = async () => {
+
         //console.log("ADDING");
         const { data } = await getOrders();
         console.log(data);
