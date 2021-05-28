@@ -5,7 +5,7 @@ import CSSlogin from "../CSSstyles/Signin.module.css";
 import amazon from "../img/amazon.png";
 
 export const Signin = (props) => {
-  const history = useHistory();
+  const history = useHistory;
   const signup = (e) => {
     e.preventDefault();
     history.push("/signUp");
