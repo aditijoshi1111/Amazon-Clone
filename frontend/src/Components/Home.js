@@ -1,11 +1,9 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import CSSHome from "../CSSstyles/Home.module.css";
 import banner from "../img/banner.jpg";
-import amazonAd from "../img/amazonAd.jpg";
-import amazonAd1 from "../img/amazonAd1.jpg";
-import amazonAd2 from "../img/amazonAd2.jpg";
-import amazonAd3 from "../img/amazonAd3.jpg";
 import Cards from "./Cards";
+//import Carousel from "react-elastic-carousel";
+//import BackgroundSlider from 'react-background-slider';
 //import Carousel from 'react-bootstrap/Carousel';
 //import Slider from "react-slick";
 import ReactLoading from "react-loading";
@@ -64,7 +62,7 @@ function Home({ count, fun, total, fun1 }) {
   ) : (
     <div className={CSSHome.home}>
       <div className={CSSHome.home_container}>
-        <img className={CSSHome.home_image} src={banner} alt="o snap" />
+         <img className={CSSHome.home_image} src={banner} alt="o snap" />
         <div className={CSSHome.home_row1}>
           {product_List.map((item) => {
             return (
