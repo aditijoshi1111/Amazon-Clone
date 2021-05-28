@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 //My Routes
 const userRoutes = require("./routes/user");
 const productRoutes = require("./routes/product");
+const orderRoutes = require("./routes/order");
 //DB connection
 
 mongoose
@@ -30,7 +31,8 @@ app.use(cors());
 
 // my middlewares
 app.use("/api", userRoutes);
-app.use("/api",productRoutes);
+app.use("/api", productRoutes);
+app.use("/api",orderRoutes);
 
 // app.get("/", function(req,res){
 //     res.sendFile(path.join(__dirname,"../frontend/src/App.js"));

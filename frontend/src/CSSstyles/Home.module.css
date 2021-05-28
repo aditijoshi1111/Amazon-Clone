@@ -1,15 +1,20 @@
 .home {
   display: flex;
   justify-content: center;
-  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto; 
+  /* max-width: 1500px;  */
+  overflow: scroll;
   background-color: whitesmoke;
+  
 }
 .home_row {
   display: flex;
-  z-index: 1;
+  /* z-index: 1;
   margin-left: 5px;
   margin-right: 5px;
-  align-content: stretch;
+  align-content: stretch; */
+  justify-content: space-evenly;
 }
 .home_image {
   width: 100%;
@@ -30,7 +35,8 @@
   z-index: 1;
   margin-left: 5px;
   margin-right: 5px;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 } */
 

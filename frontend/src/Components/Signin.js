@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { authenticate, isAutheticated, signin } from "../apis/auth";
+import { getOrders } from "../apis/order";
 import CSSlogin from "../CSSstyles/Signin.module.css";
 import amazon from "../img/amazon.png";
 
@@ -31,17 +32,25 @@ export const Signin = (props) => {
     signin({ email, password })
       .then((data) => {
         if (data.error) {
-          setValues({ ...values, error: data.error, loading: false });
+          setValues({
+            ...values,
+            error: data.error,
+            loading: false,
+            email: "",
+            password: "",
+          });
         } else {
           authenticate(data, () => {
             setValues({
               ...values,
               didRedirect: true,
             });
-           
-
           });
-          //console.log(data.user.name)
+          getOrders().then((data) => {
+            if (data.data)
+            props.setCount(data.data.length);
+          });
+
           props.setName(data.user.name);
           history.push("/");
         }
@@ -59,9 +68,7 @@ export const Signin = (props) => {
     }
   };
 
-
   return (
-    
     <div className={CSSlogin.Signin}>
       {performRedirect()}
       <Link to="/">

@@ -1,6 +1,9 @@
 .container{
     background-color :#131921;
     color:white;
+    position: relative;
+    bottom: 5px;
+    width: 100%;
 }
 .row{
     display: flex;
@@ -9,8 +12,9 @@
 .list a{
     text-decoration: none;
     color: white;
-    margin:0;
+    margin:2px;
     font-size: 15px;
+    font-weight: 600;
 }
 .row a:hover{
     color: lightgrey;
