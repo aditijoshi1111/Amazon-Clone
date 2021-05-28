@@ -21,7 +21,7 @@ function App() {
   const [check, setCheck] = useState(false);
   const [name, setName] = useState("Guest");
   const [{ basket }, dispatch] = useStateValue();
-  const [cookies, setCookie] = useCookies(['name']);
+  const [cookies, setCookie] = useCookies([""]);
   function arrayBufferToBase64(buffer) {
     var binary = "";
     var bytes = [].slice.call(new Uint8Array(buffer));
@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     if (isAutheticated().user) {
       setName(isAutheticated().user.name);
-      setCookie('jwt',isAutheticated().token , { path: '/' });
+      setCookie("jwt", isAutheticated().token, { path: "/" });
     }
 
     // console.log("length", basket.length, check);
@@ -61,7 +61,6 @@ function App() {
         });
       };
       let orderGet = async () => {
-
         //console.log("ADDING");
         const { data } = await getOrders();
         console.log(data);
@@ -75,6 +74,7 @@ function App() {
             //console.log(oId);
             getProd(id, obj.count, oId);
           }
+          setCount(data.length);
         }
       };
       orderGet();
