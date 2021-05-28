@@ -27,7 +27,7 @@ export default function Footer() {
                         <h4>Our Address</h4>
                         <p >Chitkara University,<br/>Punjab Campus,<br/> Rajpura</p>
                            <Link style={{color: "skyblue"}} to=""> <PhoneIcon/>: +998822133</Link><br></br>
-                           <Link style={{color: "skyblue"}} to=""> <MailIcon/>: amzazonclone.net</Link>
+                           <Link style={{color: "skyblue"}} to=""> <MailIcon/>: amazonclone.net</Link>
                     </div>
                     
                     <div className="col">
