@@ -1,6 +1,9 @@
 .container{
     background-color :#131921;
     color:white;
+    position: relative;
+    bottom: 5px;
+    width: 100%;
 }
 .row{
     display: flex;

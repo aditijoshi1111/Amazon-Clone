@@ -48,24 +48,13 @@ export default function Footer() {
           </Link>
         </div>
 
-        <div className="col">
-          <p>
-            <br></br>
-            <br></br>
-            <br></br>
-            <Link to="">
-              <GitHubIcon className={CSSFooter.social} />
-            </Link>
-            <Link to="">
-              <InstagramIcon className={CSSFooter.social} />
-            </Link>
-            <Link to="">
-              <FacebookIcon className={CSSFooter.social} />
-            </Link>
-            <Link to="">
-              <TwitterIcon className={CSSFooter.social} />
-            </Link>
-          </p>
+                </div>
+                <div className={CSSFooter.foot}>
+                    <p className="text-xs text-center"style={{margin:"3px"}}>
+                        &copy;{new Date().getFullYear()}  City Guide App - All Rights |
+                    </p>
+                </div>
+            
         </div>
       </div>
       <div className={CSSFooter.foot}>

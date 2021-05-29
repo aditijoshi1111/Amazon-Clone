@@ -8,9 +8,9 @@ import amazon from "../img/amazon.png";
 export const SignUp = () => {
     const history=useHistory();
   const [values, setValues] = useState({
-    name: "spider",
-    lastname: "man",
-    email: "spider@gmail.com",
+    name: "",
+    lastname: "",
+    email: "",
     password: "12345",
     error: "",
     success: false,
@@ -27,7 +27,7 @@ export const SignUp = () => {
     setValues({ ...values, error: false });
     signup({ name, lastname, email, password })
       .then((data) => {
-        if (data.err) {
+        if (data.error) {
           setValues({ ...values, error: data.err, success: false });
         } else {
           setValues({

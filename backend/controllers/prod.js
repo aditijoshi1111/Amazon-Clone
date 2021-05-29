@@ -61,6 +61,20 @@ async function removeProduct(req,res){
         console.log("Error deleting a product:- ",error);
     }
 }
+async function getProductById(req,res){
+    try{
+        let id = req.params.id;
+        const prod = await productModel.findById(id);
+        res.json({
+            message: "get prod successflly",
+            data: prod
+        })
+    }
+    catch(error){
+        console.log("Error deleting a product:- ",error);
+    }
+}
 module.exports.addProduct= addProduct;
 module.exports.getAllProducts = getAllProducts;
 module.exports.removeProduct = removeProduct;
+module.exports.getProductById = getProductById;

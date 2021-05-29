@@ -1,28 +1,39 @@
-import React from 'react';
+import React from "react";
 import CSSCard from "../CSSstyles/Cards.module.css";
-import CSScheck from "../CSSstyles/CheckoutProduct.module.css"
-import {useStateValue} from "./StateProvider.js";
+import CSScheck from "../CSSstyles/CheckoutProduct.module.css";
+import { useStateValue } from "./StateProvider.js";
 
-export default function CheckoutProduct({id,title,img,pri,rat,count,fun,total,fun1}) {
-    const [{basket},dispatch]=useStateValue();
-    const removeFromBasket=()=>{
-        fun1(total-pri)
-     fun(count-1);
-        dispatch({
-            type:"Remove_from_basket",
-            id:id,
-        })
-    }
-    return (
-        <div className={CSScheck.product}>
-            <img className={CSScheck.image} src={img}>    
-            </img>
-            <div className={CSScheck.info}>
-                <p>{title}</p>
-                <p className={CSSCard.price}>
+export default function CheckoutProduct({
+  id,
+  title,
+  img,
+  pri,
+  rat,
+  count,
+  fun,
+  total,
+  fun1,
+  quan
+}) {
+  const [{ basket }, dispatch] = useStateValue();
+  const removeFromBasket = () => {
+    fun1(total - pri);
+    fun(count - 1);
+    dispatch({
+      type: "Remove_from_basket",
+      id: id,
+    });
+  };
+  return (
+    <div className={CSScheck.product}>
+      <img className={CSScheck.image} src={img}></img>
+      <div className={CSScheck.info}>
+        <p>{title}</p>
+        <p className={CSSCard.price}>
           <small>Rs.</small>
           <strong>{pri}</strong>
         </p>
+        <strong>Quantity {quan}</strong>
         <div className={CSSCard.rating}>
           {Array(rat)
             .fill()
@@ -30,10 +41,10 @@ export default function CheckoutProduct({id,title,img,pri,rat,count,fun,total,fu
               <p>🌟</p>
             ))}
         </div>
-        <button className={CSScheck.btn}  onClick={removeFromBasket}>Remove from basket</button>
-            </div>
-            
-        </div>
-
-    )
+        <button className={CSScheck.btn} onClick={removeFromBasket}>
+          Remove from basket
+        </button>
+      </div>
+    </div>
+  );
 }

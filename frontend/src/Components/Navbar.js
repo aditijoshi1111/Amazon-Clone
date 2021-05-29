@@ -5,6 +5,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import CSSNav from "../CSSstyles/Navbar.module.css";
 import logo from "../img/logo.png";
 import { isAutheticated, signout } from "../apis/auth";
+import { getOrders } from "../apis/order";
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -12,6 +13,10 @@ class Navbar extends React.Component {
     this.state = {
       name: this.props.name,
     };
+  }
+  async componentDidMount() {
+    let alreadyAdded = await getOrders();
+    if (alreadyAdded.data) this.props.setCount(alreadyAdded.data.length);
   }
   componentWillReceiveProps(nextProps) {
     //console.log(nextProps.name);
@@ -68,12 +73,20 @@ class Navbar extends React.Component {
                   </div>
                 </Link>
               ) : (
-                <Link onClick={() =>
-                  signout(() => {
-                    this.props.history.push("/signIn");
-                    this.props.setName("Guest");
-                  })
-                }>
+                <Link
+                  onClick={() =>
+                    signout(() => {
+                      this.props.history.push("/signIn");
+                      this.props.setName("Guest");
+                      this.props.setCount(0);
+                      this.props.setCheck(false);
+                      let { dispatch } = this.props;
+                      dispatch({
+                        type: "Clear_Basket",
+                      });
+                    })
+                  }
+                >
                   <div>
                     <span>Hello {this.state.name}</span>
                     <br />
@@ -91,25 +104,44 @@ class Navbar extends React.Component {
                 </div>
               </Link>
             </li>
-
-            <li>
-              <Link to="/addProduct">
+            {isAutheticated() ? (
+              <li>
+                <Link to="/addProduct">
+                  <div>
+                    <span>Add</span>
+                    <br />
+                    Product
+                  </div>
+                </Link>
+              </li>
+            ) : (
+              <Link to="/signUp">
                 <div>
-                  <span>Add</span>
+                  <span>Create Account</span>
                   <br />
-                  Product
+                  Sign Up
                 </div>
               </Link>
-            </li>
-
-            <li>
-              <Link to="/cart">
-                <div>
-                  <ShoppingCartIcon />
-                  {this.props.count}
-                </div>
-              </Link>
-            </li>
+            )}
+            {isAutheticated() ? (
+              <li>
+                <Link to="/cart">
+                  <div>
+                    <ShoppingCartIcon />
+                    {this.props.count}
+                  </div>
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/signIn">
+                  <div>
+                    <ShoppingCartIcon />
+                    {this.props.count}
+                  </div>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
