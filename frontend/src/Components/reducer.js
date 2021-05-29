@@ -21,15 +21,16 @@ const reducer = (state, action) => {
         basket: arr,
       };
     case "Remove_from_basket":
-      const index = state.basket.findIndex(
-        (basketItem) => basketItem.id === action.id
-      );
-      let newBasket = [...state.basket];
-      if (index >= 0) {
-        newBasket.splice(index, 1);
-      } else {
-        console.warn("cant remove products with id", action.id);
-      }
+      let narr = state.basket;
+      let rid = action.id;
+      narr = narr.filter((item) => {
+        return item.id != rid;
+      });
+      return {
+        ...state,
+        basket: narr,
+      };
+
     case "Clear_Basket":
       return {
         ...state,

@@ -53,3 +53,13 @@ export const updateOrder = (id,obj) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const deleteOrder = (id) => {
+  return fetch(`/orders/${id}/`, {
+    method: "DELETE",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};

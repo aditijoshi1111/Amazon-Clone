@@ -14,13 +14,14 @@ import { isAutheticated } from "./apis/auth";
 import { getOrders } from "./apis/order";
 import { useStateValue } from "./Components/StateProvider";
 import { getProdById } from "./apis/product";
-
+import { useCookies } from "react-cookie";
 function App() {
   const [counter, setCount] = useState(0);
   const [price, setTotal] = useState(0);
   const [check, setCheck] = useState(false);
   const [name, setName] = useState("Guest");
   const [{ basket }, dispatch] = useStateValue();
+  const [cookies, setCookie] = useCookies([""]);
   function arrayBufferToBase64(buffer) {
     var binary = "";
     var bytes = [].slice.call(new Uint8Array(buffer));
@@ -31,12 +32,17 @@ function App() {
   }
 
   useEffect(() => {
-    if (isAutheticated().user) setName(isAutheticated().user.name);
-   // console.log("length", basket.length, check);
-    console.log(name);
+    if (isAutheticated().user) {
+      setName(isAutheticated().user.name);
+      setCookie("jwt", isAutheticated().token, { path: "/" });
+    }
+
+    // console.log("length", basket.length, check);
+    console.log(basket);
     if (isAutheticated() && check == false) {
       setCheck(true);
-      const getProd = async (id, count) => {
+      //console.log("ADDING")
+      const getProd = async (id, count, oId) => {
         const { data } = await getProdById(id);
         let base64Flag = "data:image/jpeg;base64,";
         let imageStr = arrayBufferToBase64(data.img.data.data);
@@ -45,6 +51,7 @@ function App() {
           type: "Add_to_basket",
           item: {
             id: id,
+            oId: oId,
             title: data.Product_name,
             img: image,
             pri: data.Price,
@@ -56,12 +63,18 @@ function App() {
       let orderGet = async () => {
         //console.log("ADDING");
         const { data } = await getOrders();
+        console.log(data);
+        //console.log(data)
         if (data.length) {
           for (let i = 0; i < data.length; i++) {
             let obj = data[i];
+            console.log(obj);
             let id = obj.product;
-            getProd(id, obj.count);
+            let oId = obj._id;
+            //console.log(oId);
+            getProd(id, obj.count, oId);
           }
+          setCount(data.length);
         }
       };
       orderGet();

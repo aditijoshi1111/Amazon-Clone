@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CSSMyCard from "../CSSstyles/MyCard.module.css";
 import amazon from "../img/amazon.png";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function MyCard() {
   const [product_name, setproduct_name] = useState("");
@@ -12,14 +13,15 @@ export default function MyCard() {
 
   function upload(e) {
     e.preventDefault();
-    var form = new FormData();
+    let form = new FormData();
     form.append("product_name", product_name);
     form.append("file", img);
     form.append("description", description);
     form.append("seller_name", seller_name);
     form.append("price", price);
+    //console.log(form);
 
-    fetch("http://localhost:8000/api/postProduct", {
+    fetch("/postProduct", {
       method: "POST",
       body: form,
     })
@@ -27,13 +29,22 @@ export default function MyCard() {
       .then((data) => {
         console.log(data);
         if (data.length === 0) {
-          alert("Sorry, request failed.");
+          toast("please fill all fields", {
+            type: "error",
+          });
         } else {
-          alert("Product added successfully.");
+          toast("Product added Successfully!", {
+            type: "success",
+          });
         }
       })
       .catch((err) => console.log("Error in adding product ", err));
 
+    setproduct_name("");
+    setdescription("");
+    setimg("");
+    setprice("");
+    setseller_name("");
     e.target.reset();
   }
 
@@ -93,6 +104,13 @@ export default function MyCard() {
 
         <button type="submit">Add Product</button>
       </form>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+      />
     </div>
   );
 }

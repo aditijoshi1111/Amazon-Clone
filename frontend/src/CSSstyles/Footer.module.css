@@ -12,8 +12,9 @@
 .list a{
     text-decoration: none;
     color: white;
-    margin:0;
+    margin:2px;
     font-size: 15px;
+    font-weight: 600;
 }
 .row a:hover{
     color: lightgrey;
