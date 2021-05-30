@@ -62,15 +62,15 @@ export const Signin = (props) => {
 
   const performRedirect = () => {
     if (didRedirect) {
-      return <Redirect to="/" />;
+     history.push("/")
     } else if (isAutheticated()) {
-      return <Redirect to="/" />;
+     history.push("/")
     }
   };
 
+  {performRedirect()}
   return (
     <div className={CSSlogin.Signin}>
-      {performRedirect()}
       <Link to="/">
         <img className={CSSlogin.amazon} src={amazon} alt="Signin-logo" />
       </Link>
