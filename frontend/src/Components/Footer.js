@@ -29,45 +29,47 @@ export default function Footer() {
           </ul>
         </div>
 
-                        <ul className={CSSFooter.list}>
-                        <h4>Get to know Us</h4>
-                        <Link to="" > <li>Blog</li></Link>
-                        <Link to="/aboutUs" > <li>About Us</li></Link>
-                        <Link to="/contactUs" > <li>Contact Us</li></Link>
-                        </ul>
-                    </div>
-    
-                    
-                    <div>
-                        <h4>Our Address</h4>
-                        <p >Chitkara University,<br/>Punjab Campus,<br/> Rajpura</p>
-                           <Link style={{color: "skyblue"}} to=""> <PhoneIcon/>: +998822133</Link><br></br>
-                           <Link style={{color: "skyblue"}} to=""> <MailIcon/>: amazonclone.net</Link>
-                    </div>
-                    
-                    <div className="col">
-                    <p> 
-                    <br></br><br></br><br></br>
-                      <Link to="" ><GitHubIcon className={CSSFooter.social}/></Link>     
-                      <Link to="" ><InstagramIcon className={CSSFooter.social}/></Link>
-                      <Link to="" ><FacebookIcon className={CSSFooter.social}/></Link> 
-                      <Link to="" ><TwitterIcon className={CSSFooter.social}/></Link>  
-                    </p>
-                    </div>
-                        
-                    
+        <div>
+          <h4>Our Address</h4>
+          <p>
+            Chitkara University,
+            <br />
+            Punjab Campus,
+            <br /> Rajpura
+          </p>
+          <Link style={{ color: "skyblue" }} to="">
+            {" "}
+            <PhoneIcon />: +998822133
+          </Link>
+          <br></br>
+          <Link style={{ color: "skyblue" }} to="">
+            {" "}
+            <MailIcon />: amazonclone.net
+          </Link>
+        </div>
 
-                
-                <div className={CSSFooter.foot}>
-                    <p className="text-xs text-center"style={{margin:"3px"}}>
-                        &copy;{new Date().getFullYear()}  City Guide App - All Rights |
-                    </p>
-                </div>
-            
+        <div className="col">
+          <p>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Link to="">
+              <GitHubIcon className={CSSFooter.social} />
+            </Link>
+            <Link to="">
+              <InstagramIcon className={CSSFooter.social} />
+            </Link>
+            <Link to="">
+              <FacebookIcon className={CSSFooter.social} />
+            </Link>
+            <Link to="">
+              <TwitterIcon className={CSSFooter.social} />
+            </Link>
+          </p>
         </div>
       </div>
       <div className={CSSFooter.foot}>
-        <p className="text-xs text-center">
+        <p className="text-xs text-center" style={{ margin: "3px" }}>
           &copy;{new Date().getFullYear()} City Guide App - All Rights |
         </p>
       </div>
