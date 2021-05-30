@@ -15,12 +15,15 @@ import { getOrders } from "./apis/order";
 import { useStateValue } from "./Components/StateProvider";
 import { getProdById } from "./apis/product";
 import { useCookies } from "react-cookie";
+import Search from "./Components/Search";
 function App() {
   const [counter, setCount] = useState(0);
   const [price, setTotal] = useState(0);
   const [check, setCheck] = useState(false);
   const [name, setName] = useState("Guest");
   const [{ basket }, dispatch] = useStateValue();
+  const [products, setProducts] = useState([]);
+  const [keyword, setKeyword] = useState("");
   const [cookies, setCookie] = useCookies([""]);
   function arrayBufferToBase64(buffer) {
     var binary = "";
@@ -82,6 +85,28 @@ function App() {
     // console.log(ordersInCart);
   }, [name]);
 
+  useEffect(() => {
+   
+    fetch("/getAllProducts", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        for (let i = 0; i < data.length; i++) {
+          var base64Flag = "data:image/jpeg;base64,";
+          var imageStr = arrayBufferToBase64(data[i].img.data.data);
+
+          data[i].img = base64Flag + imageStr;
+        }
+        for (let i = 0; i < data.length; i++) {
+          let obj = data[i];
+          setProducts((prevState) => [...prevState, obj]);
+        }
+      })
+
+      .catch((err) => console.log(err));
+  }, []);
+
   // console.log(name)
   return (
     <BrowserRouter>
@@ -93,6 +118,8 @@ function App() {
           setCount={setCount}
           dispatch={dispatch}
           setCheck={setCheck}
+          keyword={keyword}
+          setKeyword={setKeyword}
         />
         <Switch>
           <Route exact path="/">
@@ -101,6 +128,7 @@ function App() {
               fun={setCount}
               total={price}
               fun1={setTotal}
+              products={products}
             />
           </Route>
 
@@ -127,6 +155,18 @@ function App() {
 
           <Route path="/aboutUs">
             <AboutUs />
+          </Route>
+
+          <Route path="/search">
+            <Search
+              products={products}
+              keyword={keyword}
+              setProducts={setProducts}
+              count={counter}
+              fun={setCount}
+              total={price}
+              fun1={setTotal}
+            />
           </Route>
 
           <Route path="/contactUs">

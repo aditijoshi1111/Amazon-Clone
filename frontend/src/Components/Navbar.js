@@ -12,6 +12,7 @@ class Navbar extends React.Component {
     super(props);
     this.state = {
       name: this.props.name,
+      keyword: this.props.keyword,
     };
   }
   async componentDidMount() {
@@ -23,12 +24,27 @@ class Navbar extends React.Component {
     if (this.props.name !== nextProps.name) {
       this.setState({ name: nextProps.name });
     }
+    // if (this.props.keyword !== nextProps.keyword) {
+    //   this.setState({ keyword: nextProps.keyword });
+    // }
   }
   // componentDidUpdate(prevProps){
   //   if(prevProps.name!== this.props.name)
   //     this.setState({ name: this.props.name });
 
   // }
+  handleChange = (event) => {
+    this.setState({ keyword: event.target.value });
+  };
+  submit = () => {
+    let value = this.state.keyword;
+    console.log(value)
+    if (value == undefined) value = "";
+    value = value.toLowerCase();
+    this.props.setKeyword(value);
+    this.setState({ keyword: "" });
+    this.props.history.push("/search");
+  };
 
   render() {
     return (
@@ -52,17 +68,18 @@ class Navbar extends React.Component {
           </label>
 
           <form className={CSSNav.search}>
-            <input type="text" />
-            <SearchIcon className={CSSNav.search_icon} />
+            <input
+              type="text"
+              value={this.state.keyword}
+              onChange={this.handleChange}
+            />
+            <SearchIcon
+              className={CSSNav.search_icon}
+              onClick={() => this.submit()}
+            />
           </form>
 
           <ul>
-            <li>
-              <form className={CSSNav.search_pseudo}>
-                <input type="text" />
-                <SearchIcon className={CSSNav.search_icon} />
-              </form>
-            </li>
             <li>
               {!isAutheticated() ? (
                 <Link to="/signIn">
