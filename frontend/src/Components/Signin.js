@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { authenticate, isAutheticated, signin } from "../apis/auth";
 import { getOrders } from "../apis/order";
 import CSSlogin from "../CSSstyles/Signin.module.css";
