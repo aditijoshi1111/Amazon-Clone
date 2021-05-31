@@ -8,13 +8,13 @@ import Cards from "./Cards";
 //import Slider from "react-slick";
 import ReactLoading from "react-loading";
 
-function Home({ count, fun, total, fun1 }) {
+function Home({ count, fun, total, fun1, products }) {
   const [product_List, setproduct_List] = useState([]);
   let [loading, setLoading] = useState(true);
   let color = "#f0c14b";
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/getAllProducts", {
+    fetch("/getAllProducts", {
       method: "GET",
     })
       .then((response) => response.json())

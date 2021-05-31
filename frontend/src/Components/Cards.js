@@ -162,7 +162,7 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1 }) {
   };
 
   const removeProduct = () => {
-    fetch("http://localhost:8000/api/removeProduct/" + id)
+    fetch("/removeProduct/" + id)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

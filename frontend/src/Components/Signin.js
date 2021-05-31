@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { useState ,Fragment} from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
+=======
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+>>>>>>> a0d707cf9f5df2c92e006fe85c82c95f90f93f13
 import { authenticate, isAutheticated, signin } from "../apis/auth";
 import { getOrders } from "../apis/order";
 import CSSlogin from "../CSSstyles/Signin.module.css";
@@ -62,16 +67,16 @@ export const Signin = (props) => {
 
   const performRedirect = () => {
     if (didRedirect) {
-      return <Redirect to="/" />;
+     history.push("/")
     } else if (isAutheticated()) {
-      return <Redirect to="/" />;
+     history.push("/")
     }
   };
 
+  {performRedirect()}
   return (
     
     <div className={CSSlogin.Signin}>
-      {performRedirect()}
       <Link to="/">
         <img className={CSSlogin.amazon} src={amazon} alt="Signin-logo" />
       </Link>
