@@ -12,11 +12,7 @@ class Navbar extends React.Component {
     super(props);
     this.state = {
       name: this.props.name,
-<<<<<<< HEAD
-      //keywords:"",
-=======
       keyword: this.props.keyword,
->>>>>>> a0d707cf9f5df2c92e006fe85c82c95f90f93f13
     };
   }
   async componentDidMount() {
@@ -37,30 +33,6 @@ class Navbar extends React.Component {
   //     this.setState({ name: this.props.name });
 
   // }
-<<<<<<< HEAD
-/*getValue = (e) =>{
-  this.setState({
-    keywords:e.target.value
-  })
-}
-handleSearch =()=>{
-  fetch("http://localhost:8000/api/getAllProducts", {
-    method: "GET",
-  })
-    .then((response) => response.json())
-    .then((data) => {
-    console.log(data);
-  var arr= data.filter(item =>
-    {
-      return item.Product_Name.isMatch(this.keywords);
-    });
-   // <searchKey arr={data}/>
-    
-     
-    })
-    .catch((err) => console.log(err));
-}*/
-=======
   handleChange = (event) => {
     this.setState({ keyword: event.target.value });
   };
@@ -74,7 +46,6 @@ handleSearch =()=>{
     this.props.history.push("/search");
   };
 
->>>>>>> a0d707cf9f5df2c92e006fe85c82c95f90f93f13
   render() {
     return (
       <div className={CSSNav.container}>
