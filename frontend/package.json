@@ -14,11 +14,7 @@
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
     "react": "^17.0.2",
-<<<<<<< HEAD
-    "react-bootstrap": "^1.6.0",
-=======
     "react-cookie": "^4.0.3",
->>>>>>> a0d707cf9f5df2c92e006fe85c82c95f90f93f13
     "react-currency-format": "^1.0.0",
     "react-dom": "^17.0.2",
     "react-elastic-carousel": "^0.11.5",
