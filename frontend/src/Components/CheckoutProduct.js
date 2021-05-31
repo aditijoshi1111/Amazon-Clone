@@ -93,7 +93,7 @@ export default function CheckoutProduct({
             ))}
         </div>
         <button className={CSScheck.btn} onClick={() => removeFromCart(id)}>
-          Remove from basket
+          {quan > 1 ? "Decrease the quantity" : "Remove from basket"}
         </button>
       </div>
       <ToastContainer

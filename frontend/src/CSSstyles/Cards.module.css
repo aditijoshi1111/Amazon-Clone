@@ -40,13 +40,9 @@
 .open{
   background-color: rgb(115, 136, 228);
   margin-top: 10px;
-  padding: 5px 10px;
-  /* border-color: #a88734 #9c7e31 #845a29; */
-  border: 1px solid rgb(21, 99, 172);
-  font-size: 13px;
-  color:white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border-radius: 5px;
+  background-color: #53aad3;
+  color: white;
+  border-color: #3483a8 #31759c #296784;
 }
 .open:hover{
   background-color: blue;
@@ -54,13 +50,9 @@
 .addtocart{
   background-color: #f0c14b;
   margin-top: 10px;
-  padding: 5px 10px;
-  /* border-color: #a88734 #9c7e31 #845a29; */
-  border: 1px solid rgb(221, 145, 5);
-  font-size: 13px;
+  border-color: #a88734 #9c7e31 #845a29;
   color:white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border-radius: 5px;
+  justify-self: flex-end;
 }
 .addtocart:hover{
   background-color: rgb(243, 181, 65);
@@ -74,16 +66,10 @@
   font-size: 13px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 5px;
-  justify-self: flex-end;
-}
-.remove:hover{
-  background-color: rgb(226, 50, 50);
-}
-.title{
-  margin-bottom: 15px;
+  border-color: #a83434 #9c3131 #842929;
+  color:white;
   height: 50px;
   font-weight: 500;
-  font-size: 17px;
 }
 .bdy{
   padding: 20px;
