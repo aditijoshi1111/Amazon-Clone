@@ -81,6 +81,19 @@ class Navbar extends React.Component {
 
           <ul>
             <li>
+              <form className={CSSNav.search_pseudo}>
+                <input
+                  type="text"
+                  value={this.state.keyword}
+                  onChange={this.handleChange}
+                />
+                <SearchIcon
+                  className={CSSNav.search_icon}
+                  onClick={() => this.submit()}
+                />
+              </form>
+            </li>  
+            <li>
               {!isAutheticated() ? (
                 <Link to="/signIn">
                   <div>
@@ -113,14 +126,14 @@ class Navbar extends React.Component {
               )}
             </li>
 
-            <li>
+            {/* <li>
               <Link to="/returnOrders">
                 <div>
                   <span>Returns</span>
                   <br /> Orders
                 </div>
               </Link>
-            </li>
+            </li> */}
             {isAutheticated() ? (
               <li>
                 <Link to="/addProduct">

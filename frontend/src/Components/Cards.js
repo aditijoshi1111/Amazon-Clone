@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { OpenCard } from "./OpenCard";
-
+import ZoomInIcon from '@material-ui/icons/ZoomIn';
 import CSSCard from "../CSSstyles/Cards.module.css";
 import { useStateValue } from "./StateProvider";
 
@@ -184,20 +184,21 @@ function Cards({ id, title, img, pri, rat, count, fun, total, fun1, style }) {
       </div>
       <img className={CSSCard.image} src={img} alt="o snap" />
 
-      <button className={CSSCard.open} onClick={togglePopup}>
-        Open
-      </button>
+      <ZoomInIcon className={CSSCard.open} onClick={togglePopup}/>
+
 
       {isAutheticated() ? (
         <button className={CSSCard.addtocart} onClick={() => addToCart(id)}>
-          Add to basket
+           + 
+          Add to cart
         </button>
       ) : (
         ""
       )}
       {isAutheticated() ? (
         <button className={CSSCard.remove} onClick={() => removeFromCart(id)}>
-          Remove Product
+           - 
+          Remove from cart
         </button>
       ) : (
         ""

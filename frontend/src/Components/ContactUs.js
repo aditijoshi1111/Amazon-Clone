@@ -59,11 +59,11 @@ function ContactUs() {
         </form>
         <div className={CSSContact.home_row}>
           <h2>Contact Us</h2>
-          <p>Mansi Gulati-mansi1284.cse18@chitkara.edu.in</p>
-          <p>Aditi Joshi -aditi1111.cse18@chitkara.edu.in</p>
-          <p>Mansi Gulati-mansi1284.cse18@chitkara.edu.in</p>
-          <p>Mansi Gulati-mansi1284.cse18@chitkara.edu.in</p>
-          <p>Mansi Gulati-mansi1284.cse18@chitkara.edu.in</p>
+          <p>Mansi Gulati - mansi1284.cse18@chitkara.edu.in</p>
+          <p>Aditi Joshi - aditi1111.cse18@chitkara.edu.in</p>
+          <p>Kingshuk Choudhury - kingshuk1246.cse18@chitkara.edu.in</p>
+          <p>Pallavi Grover - pallavi.cse18@chitkara.edu.in</p>
+          <p>Anshika Gupta - anshika.cse18@chitkara.edu.in</p>
         </div>
       </div>
     </div>

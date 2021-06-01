@@ -22,7 +22,7 @@
   align-items: center;
   font-size: 16px;
   font-weight: 700;
-  width: 100%;
+  /* width: 100%; */
   position: sticky;
   z-index: 10;
   padding-right: 10px;

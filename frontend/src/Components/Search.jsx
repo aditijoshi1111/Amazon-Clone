@@ -75,6 +75,7 @@ function Search({ products, keyword, count, fun, total, fun1 }) {
             color: "white",
             position: "absolute",
             left: "38%",
+            marginBottom: '20px'
           }}
           onClick={() => {
             history.push("/");
@@ -82,6 +83,7 @@ function Search({ products, keyword, count, fun, total, fun1 }) {
         >
           Go Back To Home
         </button>
+
       </div>
     </div>
   );

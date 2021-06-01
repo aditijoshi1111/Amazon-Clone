@@ -38,21 +38,14 @@
   margin-bottom: 15px;
 }
 .open{
-  background-color: rgb(115, 136, 228);
-  margin-top: 10px;
-  padding: 5px 10px;
-  /* border-color: #a88734 #9c7e31 #845a29; */
-  border: 1px solid rgb(21, 99, 172);
-  font-size: 13px;
-  color:white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: skyblue;
+  padding: 3px 7px;
+  margin: 5px;
+  border: 1px solid rgb(149, 149, 216);
   border-radius: 5px;
-  background-color: #53aad3;
-  color: white;
-  border-color: #3483a8 #31759c #296784;
 }
 .open:hover{
-  background-color: blue;
+  background-color: rgb(99, 162, 187);
 }
 .addtocart{
   background-color: #f0c14b;
@@ -97,7 +90,6 @@
   padding: 20px;
   border-top: 1px solid #eee;
 }
-
 
 @media all and (max-width: 700px){
   .title{
